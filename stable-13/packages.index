@@ -59,6 +59,7 @@ gui-libs/gtk4
 gui-libs/libadwaita
 gui-libs/libdecor
 gui-misc/lydm
+gui-wm/labwc
 gui-wm/niri
 media-gfx/imagemagick
 media-libs/dav1d
