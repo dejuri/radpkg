@@ -1,0 +1,9 @@
+[package]
+name = "jansson"
+version = "2.15.1"
+description = "C library for encoding, decoding and manipulating JSON data"
+source = "https://github.com/akheron/jansson/releases/download/v2.15.1/jansson-2.15.1.tar.gz"
+
+[build]
+system = "autotools"
+depends = ""

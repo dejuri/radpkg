@@ -24,6 +24,7 @@ dev-lang/sassc
 dev-lang/zig
 dev-libs/elfutils
 dev-libs/fribidi
+dev-libs/jansson
 dev-libs/json-glib
 dev-libs/libbpf
 dev-libs/libfyaml
@@ -110,6 +111,7 @@ sys-kernel/linux
 sys-libs/glibc
 sys-libs/unibilium
 sys-libs/zlib
+sys-power/ddcutil
 sys-process/btop
 www-client/helium-bin
 www-client/links

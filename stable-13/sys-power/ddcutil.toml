@@ -1,0 +1,15 @@
+[package]
+name = "ddcutil"
+version = "3.0.1"
+description = "Utility for controlling monitor settings"
+source = "https://github.com/rockowitz/ddcutil/archive/refs/tags/v3.0.1.tar.gz"
+
+[build]
+system = "manual"
+build_commands = [
+	"./autogen.sh",
+	"./configure --prefix=/usr --sysconfdir=/etc",
+	"make -j$RAD_CORES"
+]
+install_command = "make DESTDIR=$DESTDIR install"
+depends = "jansson"
