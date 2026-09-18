@@ -1,0 +1,8 @@
+[package]
+name = "brightnessctl"
+version = "0.5.1"
+description = "This program allows you read and control device brightness on Linux"
+source = "https://github.com/Hummer12007/brightnessctl/archive/refs/tags/0.5.1.tar.gz"
+
+[build]
+system = "make"

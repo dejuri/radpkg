@@ -1,0 +1,14 @@
+[package]
+name = "vlc"
+version = "3.0.23"
+description = "VLC is a media player, streamer, and encoder"
+source = "https://download.videolan.org/vlc/3.0.23/vlc-3.0.23.tar.xz"
+
+[build]
+system = "manual"
+build_commands = [
+	"sed -i 's/gstvideopool.h/video.h/' modules/codec/gstreamer/gstvlcvideopool.h",
+	"BUILDCC=gcc ./configure --prefix=/usr",
+	"make -j$RAD_CORES"
+]
+install_command = "make DESTDIR=$DESTDIR docdir=/usr/share/doc/vlc-3.0.23 install"

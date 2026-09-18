@@ -88,6 +88,7 @@ media-sound/lame
 media-video/ffmpeg
 media-video/libva-utils
 media-video/mpv
+media-video/vlc
 net-dns/libidn2
 net-libs/libpsl
 net-libs/nghttp2
@@ -111,6 +112,7 @@ sys-kernel/linux
 sys-libs/glibc
 sys-libs/unibilium
 sys-libs/zlib
+sys-power/brightnessctl
 sys-power/ddcutil
 sys-process/btop
 www-client/helium-bin
