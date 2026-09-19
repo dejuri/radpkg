@@ -8,7 +8,7 @@ unfree = false
 [build]
 system = "manual"
 multilib_support = false
-verbose = true
+verbose = false
 
 build_commands = [
 	"sh -c 'set -e; for app in xauth-1.1.2 xinit-1.4.2 xrandr-1.5.2 xset-1.2.5 xmodmap-1.0.11 xhost-1.0.9 xev-1.2.5 xwininfo-1.1.6; do curl -sSL https://www.x.org/pub/individual/app/$app.tar.xz | tar -xJ && pushd $app && ./configure --prefix=/usr --sysconfdir=/etc && make -j$RAD_CORES && popd; done'"
