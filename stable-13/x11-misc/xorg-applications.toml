@@ -1,6 +1,6 @@
 [package]
 name = "xorg-applications"
-version = "1.4.2"
+version = "1.0.0"
 description = "Basic X.Org applications and utilities (xrandr, xinit, xauth, etc.)"
 source = "https://www.x.org/pub/individual/app/xinit-1.4.2.tar.xz"
 unfree = false
@@ -8,13 +8,13 @@ unfree = false
 [build]
 system = "manual"
 multilib_support = false
-depends = ["xorg-libs", "libpng", "fontconfig", "freetype", "curl"]
 verbose = true
 
 build_commands = [
-	"sh -c 'for app in xauth-1.1.2 xinit-1.4.2 xrandr-1.5.2 xset-1.2.5 xmodmap-1.0.11 xhost-1.0.9 xev-1.2.5 xwininfo-1.1.6; do curl -sSL https://www.x.org/pub/individual/app/$app.tar.xz | tar -xJ && pushd $app && ./configure --prefix=/usr --sysconfdir=/etc && make -j$RAD_CORES && popd; done'"
+	"sh -c 'set -e; for app in xauth-1.1.2 xinit-1.4.2 xrandr-1.5.2 xset-1.2.5 xmodmap-1.0.11 xhost-1.0.9 xev-1.2.5 xwininfo-1.1.6; do curl -sSL https://www.x.org/pub/individual/app/$app.tar.xz | tar -xJ && pushd $app && ./configure --prefix=/usr --sysconfdir=/etc && make -j$RAD_CORES && popd; done'"
 ]
 
 install_command = [
-	"sh -c 'for app in xauth-1.1.2 xinit-1.4.2 xrandr-1.5.2 xset-1.2.5 xmodmap-1.0.11 xhost-1.0.9 xev-1.2.5 xwininfo-1.1.6; do pushd $app && make install DESTDIR=$DESTDIR && popd; done'"
+	"sh -c 'set -e; for app in xauth-1.1.2 xinit-1.4.2 xrandr-1.5.2 xset-1.2.5 xmodmap-1.0.11 xhost-1.0.9 xev-1.2.5 xwininfo-1.1.6; do pushd $app && make install DESTDIR=$DESTDIR && popd; done'"
 ]
+depends = ["xorg-libs", "libpng", "fontconfig", "freetype", "curl"]

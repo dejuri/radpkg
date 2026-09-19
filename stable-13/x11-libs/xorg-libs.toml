@@ -3,7 +3,6 @@ name = "xorg-libs"
 version = "1.8.10"
 description = "Core X.Org libraries required for X11 applications"
 source = "https://www.x.org/pub/individual/lib/libX11-1.8.10.tar.xz"
-unfree = false
 
 [build]
 system = "manual"
@@ -12,9 +11,11 @@ depends = ["freetype", "curl"]
 verbose = true
 
 build_commands = [
-	"sh -c 'LIBS=\"proto/xorgproto-2024.1 lib/libXau-1.0.11 lib/libXdmcp-1.1.5 lib/libxcb-1.17.0 lib/libX11-1.8.10 lib/libXext-1.3.6 lib/libXrender-0.9.11 lib/libXft-2.3.8 lib/libXrandr-1.5.4 lib/libXcursor-1.2.2 lib/libXinerama-1.1.5 lib/libXfixes-6.0.1\"; for item in $LIBS; do pkg=$(echo $item | cut -d/ -f2); curl -sSL https://www.x.org/pub/individual/$item.tar.xz | tar -xJ && pushd $pkg && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static && make -j$RAD_CORES && pushd . && make install && popd && popd; done'"
+	"sh -c 'set -e; BUILD_ROOT=$PWD; LIBS=\"proto/xorgproto-2024.1 lib/libXau-1.0.11 lib/libXdmcp-1.1.5 lib/libxcb-1.17.0 lib/libX11-1.8.10 lib/libXext-1.3.6 lib/libXrender-0.9.11 lib/libXft-2.3.8 lib/libXrandr-1.5.4 lib/libXcursor-1.2.2 lib/libXinerama-1.1.5 lib/libXfixes-6.0.1\"; for item in $LIBS; do pkg=$(echo $item | cut -d/ -f2); curl -sSL https://www.x.org/pub/individual/$item.tar.xz | tar -xJ; pushd $pkg; export PKG_CONFIG_PATH=\"$(find $BUILD_ROOT -name \"*.pc\" -exec dirname {} \\; | sort -u | tr \"\\n\" \":\"):$PKG_CONFIG_PATH\"; INCDIRS=$(find $BUILD_ROOT -type d \\( -name \"include\" -o -name \"X11\" \\) | sort -u | sed \"s/^/-I/\" | tr \"\\n\" \" \"); export CFLAGS=\"$INCDIRS $CFLAGS\"; export LDFLAGS=\"-L$BUILD_ROOT/libX11-1.8.10/src/.libs -L$BUILD_ROOT/libxcb-1.17.0/src/.libs -L$BUILD_ROOT/libXau-1.0.11/.libs -L$BUILD_ROOT/libXdmcp-1.1.5/.libs $LDFLAGS\"; ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var; make -j$RAD_CORES; popd; done'"
 ]
 
 install_command = [
-	"sh -c 'LIBS=\"xorgproto-2024.1 libXau-1.0.11 libXdmcp-1.1.5 libxcb-1.17.0 libX11-1.8.10 libXext-1.3.6 libXrender-0.9.11 libXft-2.3.8 libXrandr-1.5.4 libXcursor-1.2.2 libXinerama-1.1.5 libXfixes-6.0.1\"; for pkg in $LIBS; do pushd $pkg && make install DESTDIR=$DESTDIR && popd; done'"
+	"sh -c 'set -e; LIBS=\"xorgproto-2024.1 libXau-1.0.11 libXdmcp-1.1.5 libxcb-1.17.0 libX11-1.8.10 libXext-1.3.6 libXrender-0.9.11 libXft-2.3.8 libXrandr-1.5.4 libXcursor-1.2.2 libXinerama-1.1.5 libXfixes-6.0.1\"; for pkg in $LIBS; do pushd $pkg; make install DESTDIR=$DESTDIR; popd; done'"
 ]
+
+post_install = "libtool --finish /usr/lib"
