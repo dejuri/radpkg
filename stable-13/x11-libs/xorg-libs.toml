@@ -6,7 +6,6 @@ source = "https://www.x.org/pub/individual/lib/libX11-1.8.10.tar.xz"
 
 [build]
 system = "manual"
-multilib_support = false
 depends = ["freetype", "curl"]
 verbose = false
 
