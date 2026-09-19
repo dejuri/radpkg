@@ -124,3 +124,4 @@ x11-libs/libgbm
 x11-libs/libglvnd
 x11-libs/nvidia-vaapi
 x11-misc/xdg-utils
+x11-misc/xorg-applications
