@@ -1,0 +1,19 @@
+[package]
+name = "libpng"
+version = "1.6.58"
+description = "The libpng package contains libraries used by other programs for reading and writing PNG files"
+source = "https://downloads.sourceforge.net/libpng/libpng-1.6.58.tar.xz"
+
+[build]
+system = "manual"
+depends = "gzip"
+build_commands = [
+	"wget https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.58-apng.patch.gz",
+	"zcat ../libpng-1.6.58-apng.patch.gz | patch -p1",
+	"./configure --prefix=/usr --disable-static",
+	"make -j$RAD_CORES"
+]
+install_commands = [
+	"make DESTDIR=$DESTDIR install",
+	"install -vDm644 README libpng-manual.txt -t $DESTDIR/usr/share/doc/libpng-1.6.58",
+]

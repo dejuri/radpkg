@@ -1,0 +1,16 @@
+[package]
+name = "fontconfig"
+version = "2.18.3"
+description = "The Fontconfig package contains a library and support programs used for managing font access"
+source = "https://gitlab.freedesktop.org/api/v4/projects/890/packages/generic/fontconfig/2.18.3/fontconfig-2.18.3.tar.xz"
+
+[build]
+system = "autotools"
+depends = "freetype"
+configure_args = [
+	"--prefix=/usr",
+	"--sysconfdir=/etc",
+	"--localstatedir=/var",
+	"--disable-docs",
+	"--docdir=/usr/share/doc/fontconfig-2.18.3"
+]
