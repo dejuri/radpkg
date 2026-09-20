@@ -1,0 +1,14 @@
+[package]
+name = "ddccontrol"
+version = "3.3.0"
+description = ""
+source = "https://github.com/ddccontrol/ddccontrol/archive/refs/tags/3.3.0.tar.gz"
+
+[build]
+system = "manual"
+build_commands = [
+	"./autogen.sh",
+	"./configure --prefix=/usr --sysconfdir=/etc --libexecdir=/usr/lib",
+	"make -j$RAD_CORES"
+]
+install_command = "make DESTDIR=$DESTDIR install"

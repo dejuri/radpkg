@@ -116,6 +116,7 @@ sys-libs/glibc
 sys-libs/unibilium
 sys-libs/zlib
 sys-power/brightnessctl
+sys-power/ddccontrol
 sys-power/ddcutil
 sys-process/btop
 www-client/helium-bin
