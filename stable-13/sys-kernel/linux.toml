@@ -1,8 +1,8 @@
 [package]
 name = "linux"
-version = "7.1.6"
+versions = ["6.1.188", "6.12.111", "6.18.53", "7.1.6"]
 description = "The Linux package contains the Linux kernel"
-source = "https://www.kernel.org/pub/linux/kernel/v7.x/linux-7.1.6.tar.xz"
+sources = ["https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.1.188.tar.xz", "https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.12.111.tar.xz", "https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.18.53.tar.xz", "https://www.kernel.org/pub/linux/kernel/v7.x/linux-7.1.6.tar.xz"]
 
 [build]
 system = "manual"
@@ -13,18 +13,18 @@ build_commands = [
 	"make -j$RAD_CORES"
 ]
 install_command = [
-	"mkdir -p $DESTDIR/boot $DESTDIR/var/lib/rad/packages/config $DESTDIR/usr/src/linux-7.1.6 $DESTDIR/lib/modules/7.1.6",
+	"mkdir -p $DESTDIR/boot $DESTDIR/var/lib/rad/packages/config $DESTDIR/usr/src/linux-{version} $DESTDIR/lib/modules/{version}",
 	"make modules_install INSTALL_MOD_PATH=$DESTDIR",
-	"cp arch/x86/boot/bzImage $DESTDIR/boot/vmlinuz-7.1.6-radian",
+	"cp arch/x86/boot/bzImage $DESTDIR/boot/vmlinuz-{version}-radian",
 	"make headers_install INSTALL_HDR_PATH=$DESTDIR/usr",
-	"cp -r * $DESTDIR/usr/src/linux-7.1.6/",
-	"rm -rf $DESTDIR/lib/modules/7.1.6/build || true",
-	"ln -s /usr/src/linux-7.1.6 $DESTDIR/lib/modules/7.1.6/build",
-	"cp .config $DESTDIR/usr/src/linux-7.1.6/",
-	"cp System.map $DESTDIR/boot/System.map-7.1.6",
-	"cp .config $DESTDIR/boot/config-7.1.6",
+	"cp -r * $DESTDIR/usr/src/linux-{version}/",
+	"rm -rf $DESTDIR/lib/modules/{version}/build || true",
+	"ln -s /usr/src/linux-{version} $DESTDIR/lib/modules/{version}/build",
+	"cp .config $DESTDIR/usr/src/linux-{version}/",
+	"cp System.map $DESTDIR/boot/System.map-{version}",
+	"cp .config $DESTDIR/boot/config-{version}",
 	"cp .config $DESTDIR/var/lib/rad/packages/config/linux"
 ]
 depends = "rsync"
-post_install = "depmod -a 7.1.6"
+post_install = "depmod -a {version}"
 verbose = true

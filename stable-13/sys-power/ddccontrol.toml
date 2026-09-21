@@ -1,7 +1,7 @@
 [package]
 name = "ddccontrol"
 version = "3.3.0"
-description = ""
+description = "DDCcontrol is a software used to control monitor parameters"
 source = "https://github.com/ddccontrol/ddccontrol/archive/refs/tags/3.3.0.tar.gz"
 
 [build]
