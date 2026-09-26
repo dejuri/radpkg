@@ -1,0 +1,14 @@
+[package]
+name = "swig"
+version = "4.5.1"
+description = "Simplified Wrapper and Interface Generator"
+source = "https://github.com/swig/swig/archive/refs/tags/v4.5.1.tar.gz"
+
+[build]
+system = "manual"
+depends = "pcre2"
+build_commands = [
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"

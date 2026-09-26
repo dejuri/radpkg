@@ -1,0 +1,14 @@
+[package]
+name = "srt"
+version = "1.5.7"
+description = "Secure Reliable Transport (SRT) Protocol"
+homepage = "https://www.srtlab.org/"
+source = "https://github.com/Haivision/srt/archive/refs/tags/v1.5.7.tar.gz"
+
+[build]
+system = "manual"
+build_commands = [
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DENABLE_SHARED=ON -DENABLE_STATIC=OFF -DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"

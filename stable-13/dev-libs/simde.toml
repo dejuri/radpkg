@@ -1,0 +1,12 @@
+[package]
+name = "simde"
+version = "0.8.2"
+description = "Header-only library for SIMD instruction sets"
+source = "https://github.com/simd-everywhere/simde/archive/refs/tags/v0.8.2.tar.gz"
+
+[build]
+system = "manual"
+build_commands = [
+	"true"
+]
+install_command = "mkdir -p $DESTDIR/usr/include && cp -r simde $DESTDIR/usr/include/"

@@ -35,5 +35,5 @@ install_command = [ "make -C NVIDIA-Linux-x86_64-610.57.04/kernel-open modules_i
     "cp -a NVIDIA-Linux-x86_64-610.57.04/nvidia-settings.desktop $DESTDIR/usr/share/applications/",
     "cp -a NVIDIA-Linux-x86_64-610.57.04/nvidia-settings.png $DESTDIR/usr/share/pixmaps/"
 ]
-post_install = [ "depmod -a {sys-kernel/linux.version}" ]
+post_install = [ "depmod -a {sys-kernel/linux.version}", "ldconfig" ]
 depends = "linux,vulkan-headers,vulkan-loader,spirv-headers,spirv-tools,glslang,libglvnd"

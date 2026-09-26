@@ -1,0 +1,14 @@
+[package]
+name = "extra-cmake-modules"
+version = "6.15.0"
+description = "Extra CMake Modules to extend the functionality of CMake (KDE)"
+source = "https://download.kde.org/Attic/frameworks/6.15/extra-cmake-modules-6.15.0.tar.xz"
+
+[build]
+system = "manual"
+build_commands = [
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"
+depends = "cmake"

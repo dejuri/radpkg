@@ -1,0 +1,14 @@
+[package]
+name = "librist"
+version = "0.2.10"
+description = "Reliable Internet Stream Transport (RIST) Protocol"
+homepage = "https://code.videolan.org/rist/librist"
+source = "https://code.videolan.org/rist/librist/-/archive/v0.2.10/librist-v0.2.10.tar.gz"
+
+[build]
+system = "manual"
+build_commands = [
+	"meson setup build --prefix=/usr --buildtype=release -Dbuiltin_cjson=false",
+	"ninja -C build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR ninja -C build install"

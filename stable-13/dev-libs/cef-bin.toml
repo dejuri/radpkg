@@ -1,0 +1,14 @@
+[package]
+name = "cef-bin"
+version = "154.0.28"
+description = "Chromium Embedded Framework (binary build from Spotify CDN)"
+homepage = "https://cef-builds.spotifycdn.com/index.html"
+source = "https://cef-builds.spotifycdn.com/cef_binary_154.0.28%2Bg564dd6c%2Bchromium-154.0.8037.58_linux64.tar.bz2"
+
+[build]
+system = "manual"
+build_commands = [
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release",
+	"cmake --build build --target libcef_dll_wrapper -j$RAD_CORES"
+]
+install_command = "mkdir -p $DESTDIR/opt/cef && cp -r ./* $DESTDIR/opt/cef/"

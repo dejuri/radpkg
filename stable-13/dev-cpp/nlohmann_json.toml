@@ -1,0 +1,14 @@
+[package]
+name = "nlohmann_json"
+version = "3.12.0"
+description = "JSON for Modern C++"
+homepage = "https://github.com/nlohmann/json"
+source = "https://github.com/nlohmann/json/archive/refs/tags/v3.12.0.tar.gz"
+
+[build]
+system = "manual"
+build_commands = [
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DJSON_BuildTests=OFF",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"

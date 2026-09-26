@@ -1,0 +1,8 @@
+[package]
+name = "asio"
+version = "1.38.2"
+description = "Cross-platform C++ library for network and low-level I/O programming (standalone)"
+source = "https://sourceforge.net/projects/asio/files/asio/1.38.2%20%28Stable%29/asio-1.38.2.tar.gz/download"
+
+[build]
+system = "autotools"

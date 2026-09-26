@@ -1,0 +1,15 @@
+[package]
+name = "libvpl"
+version = "2.17.0"
+description = "Intel Video Processing Library (oneVPL) dispatcher"
+homepage = "https://github.com/intel/libvpl"
+source = "https://github.com/intel/libvpl/archive/refs/tags/v2.17.0.tar.gz"
+
+[build]
+system = "manual"
+depends = "cmake"
+build_commands = [
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"

@@ -1,0 +1,14 @@
+[package]
+name = "qtbase"
+version = "6.11.2"
+description = "Cross-platform application framework - Base components"
+source = "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtbase-everywhere-src-6.11.2.tar.xz"
+
+[build]
+system = "manual"
+depends = "cmake,extra-cmake-modules,fontconfig,freetype,xorg-libs"
+build_commands = [
+	"cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DQT_BUILD_EXAMPLES=OFF -DQT_BUILD_TESTS=OFF",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"

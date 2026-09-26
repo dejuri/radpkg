@@ -1,0 +1,13 @@
+[package]
+name = "qr-code-generator"
+version = "1.8.0"
+description = "High-quality QR Code generator library in C++"
+source = "https://github.com/nayuki/QR-Code-generator/archive/refs/tags/v1.8.0.tar.gz"
+
+[build]
+system = "manual"
+depends = "cmake"
+build_commands = [
+	"g++ $CXXFLAGS -O3 -fPIC -shared -std=c++11 cpp/qrcodegen.cpp -o libqrcodegencpp.so"
+]
+install_command = "install -Dm755 libqrcodegencpp.so \"$DESTDIR/usr/lib/libqrcodegencpp.so\" && install -Dm644 cpp/qrcodegen.hpp \"$DESTDIR/usr/include/qrcodegen/qrcodegen.hpp\" && install -Dm644 cpp/qrcodegen.hpp \"$DESTDIR/usr/include/qrcodegen.hpp\""

@@ -1,0 +1,14 @@
+[package]
+name = "websocketpp"
+version = "0.8.2"
+description = "C++ header-only networking library implementing WebSocket protocol"
+source = "https://github.com/zaphoyd/websocketpp/archive/refs/tags/0.8.2.tar.gz"
+
+[build]
+system = "manual"
+depends = "cmake"
+build_commands = [
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF -DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"

@@ -1,0 +1,14 @@
+[package]
+name = "qtsvg"
+version = "6.11.2"
+description = "Qt 6 SVG module"
+source = "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtsvg-everywhere-src-6.11.2.tar.xz"
+
+[build]
+system = "manual"
+depends = "cmake,qtbase"
+build_commands = [
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"

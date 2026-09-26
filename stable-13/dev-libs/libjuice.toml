@@ -1,0 +1,16 @@
+[package]
+name = "libjuice"
+version = "1.7.3"
+description = "JUICE is a UDP Interactive Connectivity Establishment library"
+homepage = "https://github.com/paullouisageneau/libjuice"
+source = "https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.7.3.tar.gz"
+
+[build]
+system = "manual"
+depends = "cmake"
+build_commands = [
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"
+post_install = "ldconfig"

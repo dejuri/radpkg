@@ -1,0 +1,13 @@
+[package]
+name = "v4l-utils"
+version = "1.32.0"
+description = "Linux Video4Linux2 utilities and libv4l2 libraries"
+source = "https://linuxtv.org/downloads/v4l-utils/v4l-utils-1.32.0.tar.xz"
+
+[build]
+system = "manual"
+build_commands = [
+	"meson setup build --prefix=/usr --buildtype=release -Dv4l-utils=true",
+	"ninja -C build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR ninja -C build install"

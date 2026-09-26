@@ -1,0 +1,16 @@
+[package]
+name = "mbedtls"
+version = "3.6.2"
+description = "Lightweight TLS and cryptography library"
+homepage = "https://www.trustedfirmware.org/projects/mbed-tls/"
+source = "https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v3.6.2.tar.gz"
+
+[build]
+system = "manual"
+depends = "cmake"
+build_commands = [
+	"mkdir -p framework && touch framework/CMakeLists.txt",
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DUSE_SHARED_MBEDTLS_LIBRARY=ON -DENABLE_PROGRAMS=OFF -DENABLE_TESTING=OFF -DENABLE_WERROR=OFF -DCMAKE_C_FLAGS=\"-Wno-unterminated-string-initialization\" -DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"

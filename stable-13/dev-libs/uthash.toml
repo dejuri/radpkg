@@ -1,0 +1,12 @@
+[package]
+name = "uthash"
+version = "2.4.0"
+description = "C macros for hash tables and other data structures"
+source = "https://github.com/troydhanson/uthash/archive/refs/tags/v2.4.0.tar.gz"
+
+[build]
+system = "manual"
+build_commands = [
+	"true"
+]
+install_command = "mkdir -p $DESTDIR/usr/include && cp src/*.h $DESTDIR/usr/include/"

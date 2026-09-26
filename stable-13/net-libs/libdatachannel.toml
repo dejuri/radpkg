@@ -1,0 +1,14 @@
+[package]
+name = "libdatachannel"
+version = "0.24.5"
+description = "C/C++ WebRTC network library"
+source = "https://github.com/paullouisageneau/libdatachannel/archive/refs/tags/v0.24.5.tar.gz"
+
+[build]
+system = "manual"
+depends = "cmake,libjuice,plog,usrsctp,nlohmann_json"
+build_commands = [
+	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DNO_MEDIA=ON -DUSE_SYSTEM_PLOG=ON -DUSE_SYSTEM_SRTP=OFF -DUSE_SYSTEM_JUICE=ON -DUSE_SYSTEM_USRSCTP=ON -DUSE_SYSTEM_JSON=ON",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"
