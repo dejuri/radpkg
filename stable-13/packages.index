@@ -56,6 +56,7 @@ dev-libs/uthash
 dev-libs/websocketpp
 dev-qt/qtbase
 dev-qt/qtsvg
+dev-qt/qtwayland
 dev-util/extra-cmake-modules
 dev-util/glad
 dev-util/glslang
@@ -107,6 +108,7 @@ media-sound/lame
 media-video/ffmpeg
 media-video/libva-utils
 media-video/mpv
+media-video/obs-studio
 media-video/vlc
 net-dns/libidn2
 net-libs/libdatachannel
@@ -147,6 +149,7 @@ x11-libs/egl-gbm
 x11-libs/egl-wayland
 x11-libs/libgbm
 x11-libs/libglvnd
+x11-libs/libxkbcommon
 x11-libs/nvidia-vaapi
 x11-libs/xorg-libs
 x11-misc/xdg-utils

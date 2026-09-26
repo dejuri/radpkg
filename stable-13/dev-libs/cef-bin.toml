@@ -11,4 +11,8 @@ build_commands = [
 	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release",
 	"cmake --build build --target libcef_dll_wrapper -j$RAD_CORES"
 ]
-install_command = "mkdir -p $DESTDIR/opt/cef && cp -r ./* $DESTDIR/opt/cef/"
+install_command = [
+	"mkdir -p $DESTDIR/opt/cef && cp -r ./* $DESTDIR/opt/cef/",
+	"ln -s /usr/lib/libEGL.so.1 $DESTDIR/opt/cef/Release/libEGL.so",
+	"ln -s /usr/lib/libGLESv2.so.2 $DESTDIR/opt/cef/Release/libGLESv2.so"
+]

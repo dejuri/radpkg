@@ -1,0 +1,8 @@
+[package]
+name = "libxkbcommon"
+version = "1.13.2"
+description = "Keymap handling library for toolkits and window systems"
+source = "https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-1.13.2.tar.gz"
+
+[build]
+system = "meson"
