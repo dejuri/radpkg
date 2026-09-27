@@ -7,12 +7,9 @@ source = "https://github.com/obsproject/obs-studio/releases/download/32.2.2/OBS-
 [build]
 system = "manual"
 build_commands = [
-	"find . -type f \\( -name '*.cpp' -o -name '*.hpp' -o -name '*.c' -o -name '*.h' \\) -exec sed -i 's/u8string()/string()/g' {} +",
-	"find . -type f \\( -name 'CMakeLists.txt' -o -name '*.cmake' \\) -exec sed -i 's/CMAKE_CXX_STANDARD 17/CMAKE_CXX_STANDARD 20/g; s/CMAKE_CXX_STANDARD 14/CMAKE_CXX_STANDARD 20/g; s/-std=c++17/-std=c++20/g' {} +",
-	"cmake -S . --preset ubuntu -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=20 -DCMAKE_CXX_STANDARD_REQUIRED=ON -DCMAKE_DISABLE_FIND_PACKAGE_websocketpp=ON -DCMAKE_IGNORE_PATH=/usr/include/websocketpp -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DENABLE_BROWSER=ON -DCEF_ROOT_DIR=/opt/cef -DENABLE_VIRTUALCAM=ON -DENABLE_AJA=OFF -DENABLE_WERROR=OFF -DCMAKE_CXX_FLAGS='-Wno-error=deprecated-declarations -Wno-deprecated-declarations' -DENABLE_WEBSOCKET=ON",
-	"find build -type f -name 'flags.make' -exec sed -i 's/-std=c++17/-std=c++20/g; s/-std=gnu++17/-std=gnu++20/g' {} +",
-	"cmake --build build -j$RAD_CORES"
+	"cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_DISABLE_FIND_PACKAGE_websocketpp=ON -DCMAKE_IGNORE_PATH=/usr/include/websocketpp -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DENABLE_BROWSER=ON -DCEF_ROOT_DIR=/opt/cef -DENABLE_VIRTUALCAM=ON -DENABLE_AJA=OFF -DENABLE_WERROR=OFF -DENABLE_WEBSOCKET=ON",
+	"ninja -C build -j$RAD_CORES"
 ]
-install_command = "cmake --install build"
-depends = "qtbase,qtsvg,simde,uthash,swig,v4l-utils,cef-bin,nlohmann_json,srt,librist,mbedtls,libvpl,libdatachannel,qr-code-generator,dev-cpp/asio"
+install_command = "DESTDIR=$DESTDIR ninja -C build install"
+depends = "qtbase,qtsvg,qtwayland,simde,uthash,swig,v4l-utils,cef-bin,nlohmann_json,srt,librist,mbedtls,libvpl,libdatachannel,qr-code-generator,dev-cpp/asio, vulkan-loader"
 post_install = "ldconfig"

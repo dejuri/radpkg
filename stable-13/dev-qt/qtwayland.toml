@@ -16,6 +16,7 @@ configure_args = [
     "-GNinja",
     "-DCMAKE_INSTALL_PREFIX=/usr",
     "-DCMAKE_INSTALL_LIBDIR=lib",
+    "-DINSTALL_PLUGINSDIR=lib/qt6/plugins",
     "-DCMAKE_BUILD_TYPE=Release",
     "-DQT_BUILD_EXAMPLES=OFF",
     "-DQT_BUILD_TESTS=OFF",

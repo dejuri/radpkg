@@ -122,6 +122,7 @@ net-dns/libidn2
 net-libs/libdatachannel
 net-libs/libpsl
 net-libs/librist
+net-libs/libsrtp
 net-libs/mbedtls
 net-libs/nghttp2
 net-libs/srt
