@@ -6,4 +6,11 @@ source = "https://github.com/niri-wm/niri/archive/refs/tags/v26.04.tar.gz"
 
 [build]
 system = "cargo"
+depends = [
+    "wayland",
+    "wayland-protocols",
+    "libxkbcommon",
+    "libinput",
+    "seatd"
+]
 configure_args = "--release"

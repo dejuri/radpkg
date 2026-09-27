@@ -1,0 +1,13 @@
+[package]
+name = "libgudev"
+version = "238"
+description = "A library providing GObject bindings for libudev"
+source = "https://download.gnome.org/sources/libgudev/238/libgudev-238.tar.xz"
+
+[build]
+system = "meson"
+configure_args = [
+    "-Dintrospection=disabled",
+    "-Dvapi=disabled",
+    "-Dtests=disabled"
+]

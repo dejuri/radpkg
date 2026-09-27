@@ -1,0 +1,9 @@
+[package]
+name = "expat"
+version = "2.8.5"
+description = "Fast streaming XML parser written in C99"
+source = "https://github.com/libexpat/libexpat/releases/download/R_2_8_5/expat-2.8.5.tar.xz"
+
+[build]
+system = "cmake"
+

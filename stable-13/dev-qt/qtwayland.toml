@@ -6,13 +6,20 @@ source = "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtw
 
 [build]
 system = "cmake"
-depends = "qtbase"
-configure_args = [
-	"-DCMAKE_INSTALL_PREFIX=/usr",
-	"-DCMAKE_INSTALL_LIBDIR=lib",
-	"-DCMAKE_BUILD_TYPE=Release",
-    	"-DQT_BUILD_EXAMPLES=OFF",
-    	"-DQT_BUILD_TESTS=OFF",
-	"-DFEATURE_wayland_client=ON"
+depends = [
+    "qtbase",
+    "wayland",
+    "wayland-protocols",
+    "libxkbcommon"
 ]
-
+configure_args = [
+    "-GNinja",
+    "-DCMAKE_INSTALL_PREFIX=/usr",
+    "-DCMAKE_INSTALL_LIBDIR=lib",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DQT_BUILD_EXAMPLES=OFF",
+    "-DQT_BUILD_TESTS=OFF",
+    "-DQT_FEATURE_wayland_client=ON",
+    "-DQT_FEATURE_wayland_egl=ON",
+    "-DQT_FEATURE_wayland_server=OFF"
+]

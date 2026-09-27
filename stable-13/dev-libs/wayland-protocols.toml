@@ -1,0 +1,9 @@
+[package]
+name = "wayland-protocols"
+version = "1.49"
+description = "This package contains Wayland protocols that add functionality not available in the Wayland core protocol"
+source = "https://gitlab.freedesktop.org/wayland/wayland-protocols/-/archive/1.49/wayland-protocols-1.49.tar.gz"
+
+[build]
+system = "meson"
+depends = "wayland"

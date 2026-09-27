@@ -1,0 +1,15 @@
+[package]
+name = "libffi"
+version = "3.8.0"
+description = "A portable foreign-function interface library"
+source = "https://github.com/libffi/libffi/archive/refs/tags/v3.8.0.tar.gz"
+
+[build]
+system = "manual"
+build_commands = [
+	"./autogen.sh",
+	"./configure --prefix=/usr",
+	"make -j$RAD_CORES"
+]
+install_command = "make DESTDIR=$DESTDIR install"
+depends = "make"

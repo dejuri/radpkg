@@ -1,0 +1,17 @@
+[package]
+name = "wayland"
+version = "1.26.0"
+description = "Wayland display server protocol client and server libraries"
+source = "https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.26.0/downloads/wayland-1.26.0.tar.xz"
+
+[build]
+system = "meson"
+depends = [
+    "libffi",
+    "libxml2",
+    "expat"
+]
+configure_args = [
+    "-Ddocumentation=false",
+    "-Ddtd_validation=false"
+]

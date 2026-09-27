@@ -1,0 +1,16 @@
+[package]
+name = "libwacom"
+version = "2.20.0"
+description = "This is a library to identify graphics tablets and their model-specific features"
+source = "https://github.com/linuxwacom/libwacom/archive/refs/tags/libwacom-2.20.0.tar.gz"
+
+[build]
+system = "meson"
+depends = [
+	"libgudev",
+	"libevdev"
+]
+configure_args = [
+    "-Dtests=disabled",
+    "-Ddocumentation=disabled"
+]
