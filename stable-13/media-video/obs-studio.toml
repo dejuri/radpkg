@@ -1,15 +1,15 @@
 [package]
 name = "obs-studio"
-version = "32.2.2"
+version = "32.2.1"
 description = "OBS Studio - Free and open source software for live streaming and screen recording"
-source = "https://github.com/obsproject/obs-studio/releases/download/32.2.2/OBS-Studio-32.2.2-Sources.tar.gz"
+source = "https://github.com/obsproject/obs-studio/releases/download/32.2.1/OBS-Studio-32.2.1-Sources.tar.gz"
 
 [build]
 system = "manual"
 build_commands = [
-	"cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_DISABLE_FIND_PACKAGE_websocketpp=ON -DCMAKE_IGNORE_PATH=/usr/include/websocketpp -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DENABLE_BROWSER=ON -DCEF_ROOT_DIR=/opt/cef -DENABLE_VIRTUALCAM=ON -DENABLE_AJA=OFF -DENABLE_WERROR=OFF -DENABLE_WEBSOCKET=ON",
+	"cmake -S . -B build -G Ninja -D OBS_VERSION_OVERRIDE=\"32.2.1\" -DCMAKE_BUILD_TYPE=Release -DCMAKE_DISABLE_FIND_PACKAGE_websocketpp=ON -DCMAKE_IGNORE_PATH=/usr/include/websocketpp -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DENABLE_BROWSER=ON -DCEF_ROOT_DIR=/opt/cef -DENABLE_VIRTUALCAM=ON -DENABLE_AJA=OFF -DENABLE_WERROR=OFF -DENABLE_WEBSOCKET=ON",
 	"ninja -C build -j$RAD_CORES"
 ]
 install_command = "DESTDIR=$DESTDIR ninja -C build install"
-depends = "qtbase,qtsvg,qtwayland,simde,uthash,swig,v4l-utils,cef-bin,nlohmann_json,srt,librist,mbedtls,libvpl,libdatachannel,qr-code-generator,dev-cpp/asio, vulkan-loader"
+depends = "qtbase,qtsvg,qtwayland,simde,uthash,swig,v4l-utils,cef-bin,nlohmann_json,srt,librist,mbedtls,libvpl,libdatachannel,qr-code-generator,dev-cpp/asio,vulkan-loader,xdg-desktop-portal,vlc"
 post_install = "ldconfig"
