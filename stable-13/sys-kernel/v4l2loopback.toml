@@ -1,0 +1,14 @@
+[package]
+name = "v4l2loopback"
+version = "0.15.4"
+description = "v4l2loopback - a kernel module to create virtual video devices"
+source = "https://github.com/v4l2loopback/v4l2loopback/archive/refs/tags/v0.15.4.tar.gz"
+
+[build]
+system = "manual"
+depends = "linux"
+build_commands = [
+	"make -j$RAD_CORES -C /lib/modules/{sys-kernel/linux.version}/build M=$PWD modules"
+]
+install_command = "make install KERNELRELEASE={sys-kernel/linux.version} DESTDIR=$DESTDIR INSTALL_MOD_PATH=$DESTDIR"
+post_install = "depmod -a {sys-kernel/linux.version}"

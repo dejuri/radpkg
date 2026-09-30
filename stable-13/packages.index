@@ -116,7 +116,6 @@ media-sound/lame
 media-video/ffmpeg
 media-video/libva-utils
 media-video/mpv
-media-video/obs-studio
 media-video/vlc
 net-dns/libidn2
 net-libs/libdatachannel
@@ -145,6 +144,7 @@ sys-devel/make
 sys-fs/fuse
 sys-kernel/dracut
 sys-kernel/linux
+sys-kernel/v4l2loopback
 sys-libs/glibc
 sys-libs/unibilium
 sys-libs/zlib
