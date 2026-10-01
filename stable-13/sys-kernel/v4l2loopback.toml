@@ -10,5 +10,9 @@ depends = "linux"
 build_commands = [
 	"make -j$RAD_CORES -C /lib/modules/{sys-kernel/linux.version}/build M=$PWD modules"
 ]
-install_command = "make install KERNELRELEASE={sys-kernel/linux.version} DESTDIR=$DESTDIR INSTALL_MOD_PATH=$DESTDIR"
+install_commands = [
+	"make install KERNELRELEASE={sys-kernel/linux.version} DESTDIR=$DESTDIR INSTALL_MOD_PATH=$DESTDIR",
+	"mkdir -p $DESTDIR/etc/modprobe.d",
+	"echo 'options v4l2loopback devices=1 video_nr=10 card_label=\"OBS Virtual Camera\" exclusive_caps=1' > $DESTDIR/etc/modprobe.d/v4l2loopback.conf"
+]
 post_install = "depmod -a {sys-kernel/linux.version}"
