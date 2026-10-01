@@ -129,6 +129,7 @@ net-libs/usrsctp
 net-misc/curl
 net-misc/rsync
 net-nds/openldap
+net-vpn/logmein-hamachi
 sys-apps/coreutils
 sys-apps/dinit
 sys-apps/rad

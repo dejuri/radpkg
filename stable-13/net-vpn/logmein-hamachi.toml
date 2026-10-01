@@ -1,0 +1,23 @@
+[package]
+name = "logmein-hamachi"
+version = "2.1.0.198"
+description = "LogMeIn Hamachi VPN client (binary repackage)"
+unfree = true
+
+[build]
+system = "manual"
+build_commands = [
+	"wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.198-x64.tgz",
+	"tar xpvf logmein-hamachi-2.1.0.198-x64.tgz"
+]
+install_commands = [
+	"mkdir -p $DESTDIR/usr/bin",
+	"mkdir -p $DESTDIR/var/lib/logmein-hamachi",
+	"mkdir -p $DESTDIR/var/run/logmein-hamachi",
+	"cp logmein-hamachi-2.1.0.198-x64/hamachid $DESTDIR/usr/bin/",
+	"cp logmein-hamachi-2.1.0.198-x64/hamachi-init $DESTDIR/usr/bin/",
+	"cp logmein-hamachi-2.1.0.198-x64/dnsup $DESTDIR/usr/bin/",
+	"cp logmein-hamachi-2.1.0.198-x64/dnsdown $DESTDIR/usr/bin/",
+	"ln -sf hamachid $DESTDIR/usr/bin/hamachi",
+	"ln -sf hamachid $DESTDIR/usr/bin/logmein-hamachi"
+]
