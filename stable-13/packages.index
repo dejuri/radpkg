@@ -17,6 +17,7 @@ app-text/doxygen
 app-text/scdoc
 app-text/xmlto
 dev-build/cmake
+dev-build/rustc
 dev-cpp/asio
 dev-cpp/nlohmann_json
 dev-debug/gdb

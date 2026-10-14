@@ -1,0 +1,11 @@
+[package]
+name = "rustc"
+version = "1.99.0"
+description = "The Rust programming language is designed to be a safe, concurrent, practical language (binary)"
+source = "https://static.rust-lang.org/dist/rust-1.99.0-x86_64-unknown-linux-gnu.tar.xz"
+
+[build]
+system = "manual"
+depends = "curl"
+build_commands = "true"
+install_command = "./install.sh --prefix=/usr --destdir=$DESTDIR"
