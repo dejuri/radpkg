@@ -7,3 +7,6 @@ source = "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-
 [build]
 system = "meson"
 depends = "dev-libs/glib"
+configure_args = [
+	"-Dbuild_introspection_data=false"
+]
