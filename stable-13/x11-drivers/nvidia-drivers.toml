@@ -7,33 +7,33 @@ unfree = true
 [build]
 system = "manual"
 build_commands = [
-	"wget https://us.download.nvidia.com/XFree86/Linux-x86_64/610.57.04/NVIDIA-Linux-x86_64-610.57.04.run",
-	"chmod +x NVIDIA-Linux-x86_64-610.57.04.run",
-	"./NVIDIA-Linux-x86_64-610.57.04.run --extract-only",
-	"make -C NVIDIA-Linux-x86_64-610.57.04/kernel-open modules -j$RAD_CORES"
+	"wget https://us.download.nvidia.com/XFree86/Linux-x86_64/{version}/NVIDIA-Linux-x86_64-{version}.run",
+	"chmod +x NVIDIA-Linux-x86_64-{version}.run",
+	"./NVIDIA-Linux-x86_64-{version}.run --extract-only",
+	"make -C NVIDIA-Linux-x86_64-{version}/kernel-open modules -j$RAD_CORES"
 ]
-install_command = [ "make -C NVIDIA-Linux-x86_64-610.57.04/kernel-open modules_install SYSSRC=/usr/src/linux-{sys-kernel/linux.version} INSTALL_MOD_PATH=$DESTDIR/usr",
-    "mkdir -p $DESTDIR/usr/lib $DESTDIR/usr/lib32 $DESTDIR/usr/bin $DESTDIR/usr/share/glvnd/egl_vendor.d $DESTDIR/etc/vulkan/icd.d $DESTDIR/etc/vulkan/implicit_layer.d $DESTDIR/usr/lib/gbm $DESTDIR/usr/lib32/gbm $DESTDIR/usr/share/nvidia $DESTDIR/usr/share/man/man1 $DESTDIR/usr/share/applications $DESTDIR/usr/share/pixmaps $DESTDIR/usr/lib/firmware/nvidia/610.57.04 $DESTDIR/usr/share/egl/egl_external_platform.d $DESTDIR/usr/lib/nvidia/wine $DESTDIR/usr/lib/nvidia/32",
-    "find NVIDIA-Linux-x86_64-610.57.04/ -maxdepth 1 -name '*.so*' ! -name 'libGL.*' ! -name 'libEGL.*' ! -name 'libGLX.*' ! -name 'libGLESv*.*' ! -name 'libOpenGL.*' ! -name 'libGLdispatch.*' ! -name 'libglxserver*' -exec cp -a {} $DESTDIR/usr/lib/ \\;",
-    "find NVIDIA-Linux-x86_64-610.57.04/32/ -maxdepth 1 -name '*.so*' ! -name 'libGL.*' ! -name 'libEGL.*' ! -name 'libGLX.*' ! -name 'libGLESv*.*' ! -name 'libOpenGL.*' ! -name 'libGLdispatch.*' ! -name 'libglxserver*' -exec cp -a {} $DESTDIR/usr/lib32/ \\;",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/nvidia_icd.json $DESTDIR/etc/vulkan/icd.d/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/10_nvidia_wayland.json $DESTDIR/usr/share/glvnd/egl_vendor.d/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/10_nvidia.json $DESTDIR/usr/share/glvnd/egl_vendor.d/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/nvidia-application-profiles-* $DESTDIR/usr/share/nvidia/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/*.conf $DESTDIR/usr/share/nvidia/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/*.dll $DESTDIR/usr/lib/nvidia/wine/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/libglvnd_install_checker/*_* $DESTDIR/usr/lib/nvidia/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/32/libglvnd_install_checker/* $DESTDIR/usr/lib/nvidia/32/",
-    "for bin in nvidia-smi nvidia-settings nvidia-xconfig nvidia-cuda-mps-control nvidia-cuda-mps-server nvidia-debugdump nvidia-modprobe nvidia-persistenced nvidia-powerd nvidia-ngx-updater nvidia-pcc; do [ -f NVIDIA-Linux-x86_64-610.57.04/$bin ] && cp -a NVIDIA-Linux-x86_64-610.57.04/$bin $DESTDIR/usr/bin/; done",
-    "find NVIDIA-Linux-x86_64-610.57.04/ -maxdepth 1 -name 'libnvidia-allocator.so*' -exec cp -a {} $DESTDIR/usr/lib/ \\;",
-"ln -sf ../libnvidia-allocator.so.610.57.04 $DESTDIR/usr/lib/gbm/nvidia-drm_gbm.so",
-"find NVIDIA-Linux-x86_64-610.57.04/ -maxdepth 1 -name 'libnvidia-egl-gbm.so*' -exec cp -a {} $DESTDIR/usr/lib/ \\;",
-"cp -a NVIDIA-Linux-x86_64-610.57.04/15_nvidia_gbm.json $DESTDIR/usr/share/egl/egl_external_platform.d/",
-"cp -a NVIDIA-Linux-x86_64-610.57.04/nvidia_layers.json $DESTDIR/etc/vulkan/implicit_layer.d/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/*.1.gz $DESTDIR/usr/share/man/man1/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/firmware/* $DESTDIR/usr/lib/firmware/nvidia/610.57.04/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/nvidia-settings.desktop $DESTDIR/usr/share/applications/",
-    "cp -a NVIDIA-Linux-x86_64-610.57.04/nvidia-settings.png $DESTDIR/usr/share/pixmaps/"
+install_command = [ "make -C NVIDIA-Linux-x86_64-{version}/kernel-open modules_install SYSSRC=/usr/src/linux-{sys-kernel/linux.version} INSTALL_MOD_PATH=$DESTDIR/usr",
+    "mkdir -p $DESTDIR/usr/lib $DESTDIR/usr/lib32 $DESTDIR/usr/bin $DESTDIR/usr/share/glvnd/egl_vendor.d $DESTDIR/etc/vulkan/icd.d $DESTDIR/etc/vulkan/implicit_layer.d $DESTDIR/usr/lib/gbm $DESTDIR/usr/lib32/gbm $DESTDIR/usr/share/nvidia $DESTDIR/usr/share/man/man1 $DESTDIR/usr/share/applications $DESTDIR/usr/share/pixmaps $DESTDIR/usr/lib/firmware/nvidia/{version} $DESTDIR/usr/share/egl/egl_external_platform.d $DESTDIR/usr/lib/nvidia/wine $DESTDIR/usr/lib/nvidia/32",
+    "find NVIDIA-Linux-x86_64-{version}/ -maxdepth 1 -name '*.so*' ! -name 'libGL.*' ! -name 'libEGL.*' ! -name 'libGLX.*' ! -name 'libGLESv*.*' ! -name 'libOpenGL.*' ! -name 'libGLdispatch.*' ! -name 'libglxserver*' -exec cp -a {} $DESTDIR/usr/lib/ \\;",
+    "find NVIDIA-Linux-x86_64-{version}/32/ -maxdepth 1 -name '*.so*' ! -name 'libGL.*' ! -name 'libEGL.*' ! -name 'libGLX.*' ! -name 'libGLESv*.*' ! -name 'libOpenGL.*' ! -name 'libGLdispatch.*' ! -name 'libglxserver*' -exec cp -a {} $DESTDIR/usr/lib32/ \\;",
+    "cp -a NVIDIA-Linux-x86_64-{version}/nvidia_icd.json $DESTDIR/etc/vulkan/icd.d/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/10_nvidia_wayland.json $DESTDIR/usr/share/glvnd/egl_vendor.d/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/10_nvidia.json $DESTDIR/usr/share/glvnd/egl_vendor.d/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/nvidia-application-profiles-* $DESTDIR/usr/share/nvidia/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/*.conf $DESTDIR/usr/share/nvidia/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/*.dll $DESTDIR/usr/lib/nvidia/wine/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/libglvnd_install_checker/*_* $DESTDIR/usr/lib/nvidia/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/32/libglvnd_install_checker/* $DESTDIR/usr/lib/nvidia/32/",
+    "for bin in nvidia-smi nvidia-settings nvidia-xconfig nvidia-cuda-mps-control nvidia-cuda-mps-server nvidia-debugdump nvidia-modprobe nvidia-persistenced nvidia-powerd nvidia-ngx-updater nvidia-pcc; do [ -f NVIDIA-Linux-x86_64-{version}/$bin ] && cp -a NVIDIA-Linux-x86_64-{version}/$bin $DESTDIR/usr/bin/; done",
+    "find NVIDIA-Linux-x86_64-{version}/ -maxdepth 1 -name 'libnvidia-allocator.so*' -exec cp -a {} $DESTDIR/usr/lib/ \\;",
+"ln -sf ../libnvidia-allocator.so.{version} $DESTDIR/usr/lib/gbm/nvidia-drm_gbm.so",
+"find NVIDIA-Linux-x86_64-{version}/ -maxdepth 1 -name 'libnvidia-egl-gbm.so*' -exec cp -a {} $DESTDIR/usr/lib/ \\;",
+"cp -a NVIDIA-Linux-x86_64-{version}/15_nvidia_gbm.json $DESTDIR/usr/share/egl/egl_external_platform.d/",
+"cp -a NVIDIA-Linux-x86_64-{version}/nvidia_layers.json $DESTDIR/etc/vulkan/implicit_layer.d/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/*.1.gz $DESTDIR/usr/share/man/man1/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/firmware/* $DESTDIR/usr/lib/firmware/nvidia/{version}/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/nvidia-settings.desktop $DESTDIR/usr/share/applications/",
+    "cp -a NVIDIA-Linux-x86_64-{version}/nvidia-settings.png $DESTDIR/usr/share/pixmaps/"
 ]
 post_install = [ "depmod -a {sys-kernel/linux.version}", "ldconfig" ]
 depends = "linux,vulkan-headers,vulkan-loader,spirv-headers,spirv-tools,glslang,libglvnd"

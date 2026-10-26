@@ -46,4 +46,9 @@ if [ "$ACTION" = "build" ]; then
 
 elif [ "$ACTION" = "install" ]; then
     make -C "$BUILD_DIR" DESTDIR="$DESTDIR" install
+
+    LDD="$DESTDIR$PREFIX/bin/ldd"
+    if [ -f "$LDD" ]; then
+        sed -i 's|^RTLDLIST=.*|RTLDLIST="/usr/lib32/ld-linux.so.2 /usr/lib/ld-linux-x86-64.so.2"|' "$LDD"
+    fi
 fi

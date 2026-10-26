@@ -1,0 +1,24 @@
+[package]
+name = "glib"
+version = "2.90.1"
+description = "The GLib package contains low-level libraries useful for providing data structure handling for C"
+source = "https://download.gnome.org/sources/glib/2.90/glib-2.90.1.tar.xz"
+
+[build]
+system = "manual"
+depends = "libxslt,curl"
+build_commands = [
+	'printf "%s\n" "export BS=$PWD/bootstrap" "export PATH=\$BS/usr/bin:\$PATH" "export LD_LIBRARY_PATH=\$BS/usr/lib" "export PKG_CONFIG_PATH=\$BS/usr/lib/pkgconfig" "export PYTHONPATH=\$BS/usr/lib/gobject-introspection" "export XDG_DATA_DIRS=\$BS/usr/share:/usr/share" > bootstrap.env',
+
+	'meson setup build-p1 --prefix=$PWD/bootstrap/usr --libdir=lib --buildtype=release -D introspection=disabled -D tests=false -D man-pages=disabled -D sysprof=disabled -D glib_debug=disabled',
+	'ninja -C build-p1 -j$RAD_CORES install',
+
+	'curl -L -o gi.tar.xz https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz',
+	'tar xf gi.tar.xz',
+	'. ./bootstrap.env && meson setup build-gi gobject-introspection-1.86.0 --prefix=$PWD/bootstrap/usr --libdir=lib --buildtype=release -D build_introspection_data=true',
+	'. ./bootstrap.env && ninja -C build-gi -j$RAD_CORES install',
+
+	'. ./bootstrap.env && meson setup build --prefix=/usr --buildtype=release -D introspection=enabled -D glib_debug=disabled -D man-pages=enabled -D sysprof=disabled',
+	'. ./bootstrap.env && ninja -C build -j$RAD_CORES'
+]
+install_commands = "DESTDIR=$DESTDIR ninja -C build install"

@@ -1,0 +1,17 @@
+[package]
+name = "boost"
+version = "1.92.0"
+description = "Boost provides a set of free peer-reviewed portable C++ source libraries"
+source = "https://github.com/boostorg/boost/releases/download/boost-1.92.0/boost-1.92.0-b2-nodocs.tar.xz"
+
+[build]
+system = "manual"
+build_commands = [
+	"./bootstrap.sh --prefix=/usr",
+	"./b2 variant=release threading=multi link=shared,static"
+]
+install_command = "./b2 install --prefix=$DESTDIR/usr"
+post_install = [
+	"libtool --finish /usr/lib",
+	"ldconfig"
+]

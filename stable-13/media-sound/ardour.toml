@@ -1,0 +1,12 @@
+[package]
+name = "ardour"
+version = "9.8"
+description = "Ardour is a free and open-source digital audio workstation and hard disk recorder"
+source = "https://github.com/Ardour/ardour/archive/refs/tags/9.8.tar.gz"
+
+[build]
+system = "manual"
+depends = [
+	"dev-libs/boost",
+	"dev-cpp/glibmm"
+]

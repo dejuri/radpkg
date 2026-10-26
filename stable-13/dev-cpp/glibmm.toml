@@ -1,0 +1,12 @@
+[package]
+name = "glibmm"
+version = "2.66.10"
+description = "The GLibmm package is a set of C++ bindings for GLib"
+source = "https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.10.tar.xz"
+
+[build]
+system = "meson"
+depends = [
+	"dev-libs/glib",
+	"dev-libslibsigc++"
+]

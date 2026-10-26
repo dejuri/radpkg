@@ -1,0 +1,9 @@
+[package]
+name = "gobject-introspection"
+version = "1.86.0"
+description = "The goal of the project is to describe the APIs and collect them in a uniform, machine readable format"
+source = "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz"
+
+[build]
+system = "meson"
+depends = "dev-libs/glib"
