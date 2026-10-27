@@ -1,0 +1,19 @@
+[package]
+name = "libsigc++"
+version = "2.12.1"
+description = "The libsigc++ package implements a typesafe callback system for standard C++"
+source = "https://download.gnome.org/sources/libsigc++/2.12/libsigc++-2.12.1.tar.xz"
+
+[build]
+system = "manual"
+depends = [
+	"boost",
+	"libxslt"
+]
+build_commands = [
+	"sed -i \"s/'system',//\" meson.build",
+	"mkdir bld",
+	"meson setup --prefix=$PREFIX --buildtype=release bld",
+	"ninja -C bld -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR ninja install -C bld"

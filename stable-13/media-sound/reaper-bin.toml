@@ -1,0 +1,19 @@
+[package]
+name = "reaper-bin"
+version = "7.83"
+description = "Reaper is a powerful digital audio workstation (DAW) that offers a wide range of features for music production with a high flexibility"
+source = "https://www.reaper.fm/files/7.x/reaper783_linux_x86_64.tar.xz"
+unfree = true
+
+[build]
+system = "manual"
+build_commands = "true"
+install_commands = [
+	"mkdir -p $DESTDIR/opt/reaper/bin $DESTDIR/opt/reaper/lib $DESTDIR$PREFIX/bin $DESTDIR$PREFIX/share/applications $DESTDIR$PREFIX/share/icons/hicolor/256x256/apps",
+	"cp -r REAPER/* $DESTDIR/opt/reaper/lib",
+	"ln -sf /opt/reaper/lib/reaper $DESTDIR/opt/reaper/bin/reaper",
+	"printf '#!/usr/bin/env sh\\nexec pw-jack /opt/reaper/bin/reaper' > $DESTDIR$PREFIX/bin/reaper",
+	"chmod +x $DESTDIR$PREFIX/bin/reaper",
+	"cp REAPER/Resources/main.png $DESTDIR$PREFIX/share/icons/hicolor/256x256/apps/reaper.png",
+	"printf '[Desktop Entry]\\nName=REAPER\\nComment=Digital Audio Workstation\\nExec=reaper\\nIcon=reaper\\nTerminal=false\\nType=Application\\nCategories=AudioVideo;Audio;Recorder;\\n' > $DESTDIR$PREFIX/share/applications/reaper.desktop"
+]

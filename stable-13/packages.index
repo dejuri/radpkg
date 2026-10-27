@@ -46,6 +46,7 @@ dev-libs/libgudev
 dev-libs/libinput
 dev-libs/libjuice
 dev-libs/libsass
+dev-libs/libsigc++
 dev-libs/libtermkey
 dev-libs/libunistring
 dev-libs/libuv
@@ -117,8 +118,8 @@ media-libs/v4l-utils
 media-libs/vulkan-loader
 media-libs/x264
 media-libs/x265
-media-sound/ardour
 media-sound/lame
+media-sound/reaper-bin
 media-video/ffmpeg
 media-video/libva-utils
 media-video/mpv

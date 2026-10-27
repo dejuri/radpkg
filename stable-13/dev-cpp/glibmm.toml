@@ -8,5 +8,5 @@ source = "https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.10.tar.xz"
 system = "meson"
 depends = [
 	"dev-libs/glib",
-	"dev-libslibsigc++"
+	"dev-libs/libsigc++"
 ]
