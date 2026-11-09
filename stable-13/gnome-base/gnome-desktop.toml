@@ -3,6 +3,7 @@ name = "gnome-desktop"
 version = "44.3"
 description = "Library with common API for various GNOME desktop components"
 source = "https://download.gnome.org/sources/gnome-desktop/44/gnome-desktop-44.3.tar.xz"
+sha256 = "40efa9aa8d50effed9227a3d70671e32e9dc35e20f331cab3b562975978f4f8d"
 
 [build]
 system = "meson"

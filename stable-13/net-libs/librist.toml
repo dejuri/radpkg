@@ -4,6 +4,7 @@ version = "0.2.10"
 description = "Reliable Internet Stream Transport (RIST) Protocol"
 homepage = "https://code.videolan.org/rist/librist"
 source = "https://code.videolan.org/rist/librist/-/archive/v0.2.10/librist-v0.2.10.tar.gz"
+sha256 = "797e486961cd09bc220c5f6561ca5a08e7747b313ec84029704d39cbd73c598c"
 
 [build]
 system = "manual"

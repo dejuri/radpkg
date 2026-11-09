@@ -3,6 +3,7 @@ name = "ddccontrol"
 version = "3.3.0"
 description = "DDCcontrol is a software used to control monitor parameters"
 source = "https://github.com/ddccontrol/ddccontrol/archive/refs/tags/3.3.0.tar.gz"
+sha256 = "79937a6a5af9d7fe761d8606e11570c05b56838ea0f169b131eab29d14eff264"
 
 [build]
 system = "manual"

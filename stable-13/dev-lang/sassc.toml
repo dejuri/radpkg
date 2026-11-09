@@ -3,6 +3,7 @@ name = "sassc"
 version = "3.6.2"
 description = "SassC is a wrapper around libsass, a CSS pre-processor language"
 source = "https://github.com/sass/sassc/archive/3.6.2/sassc-3.6.2.tar.gz"
+sha256 = "608dc9002b45a91d11ed59e352469ecc05e4f58fc1259fc9a9f5b8f0f8348a03"
 
 [build]
 system = "manual"

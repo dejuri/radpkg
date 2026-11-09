@@ -1,0 +1,15 @@
+[package]
+name = "openjdk"
+version = "25"
+description = "JDK package"
+source = "https://download.oracle.com/java/25/latest/jdk-25_linux-x64_bin.tar.gz"
+sha256 = "6deafad80454d1f968105b1f582d89b8c2e88a5dfc98116a8226e0ec2fd5df8e"
+
+[build]
+system = "manual"
+build_commands = "true"
+install_commands = [
+	"mkdir -p $DESTDIR/opt/jdk-25 $DESTDIR$PREFIX/bin",
+	"cp -r jdk-*/.* jdk-*/ * $DESTDIR/opt/jdk-25/ 2>/dev/null || true",
+	"ln -sf /opt/jdk-25/bin/java $DESTDIR$PREFIX/bin/java"
+]

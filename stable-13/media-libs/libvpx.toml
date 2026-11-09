@@ -3,6 +3,7 @@ name = "libvpx"
 version = "1.16.0"
 description = "This package, from the WebM project, provides the reference implementations of the VP8 Codec (used in most current HTML5 video) and of the next-generation VP9 Codec"
 source = "https://github.com/webmproject/libvpx/archive/v1.16.0/libvpx-1.16.0.tar.gz"
+sha256 = "7a479a3c66b9f5d5542a4c6a1b7d3768a983b1e5c14c60a9396edc9b649e015c"
 
 [build]
 system = "manual"

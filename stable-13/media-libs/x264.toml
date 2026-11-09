@@ -3,6 +3,7 @@ name = "x264"
 version = "20250815"
 description = "x264 package provides a library for encoding video streams into the H.264/MPEG-4 AVC format"
 source = "https://anduin.linuxfromscratch.org/BLFS/x264/x264-20250815.tar.xz"
+sha256 = "eb9c8febcf4889d01a4fd97f67a9bec74981a67c89d04e492b74e81edd720031"
 
 [build]
 system = "autotools"

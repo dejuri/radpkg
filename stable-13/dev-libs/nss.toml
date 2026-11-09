@@ -3,6 +3,7 @@ name = "nss"
 version = "3.126"
 description = "The Network Security Services (NSS) package is a set of libraries designed to support cross-platform development of security-enabled client and server applications"
 source = "https://archive.mozilla.org/pub/security/nss/releases/NSS_3_126_RTM/src/nss-3.126.tar.gz"
+sha256 = "7aa07c758be1453d82d739240b249ffb7aef0041be488067e1c0f348e1f9e337"
 
 [build]
 system = "manual"

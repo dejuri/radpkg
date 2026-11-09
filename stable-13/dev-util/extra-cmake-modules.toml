@@ -3,6 +3,7 @@ name = "extra-cmake-modules"
 version = "6.15.0"
 description = "Extra CMake Modules to extend the functionality of CMake (KDE)"
 source = "https://download.kde.org/Attic/frameworks/6.15/extra-cmake-modules-6.15.0.tar.xz"
+sha256 = "f7cd022095a9e6bdbe5897720a24bfda81d211757b7c08b173061962bf2ee0b2"
 
 [build]
 system = "manual"

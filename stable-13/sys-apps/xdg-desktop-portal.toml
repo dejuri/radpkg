@@ -3,6 +3,7 @@ name = "xdg-desktop-portal"
 version = "1.20.4"
 description = "xdg-desktop-portal is a D-Bus service that allows applications to interact with the desktop in a safe way"
 source = "https://github.com/flatpak/xdg-desktop-portal/releases/download/1.20.4/xdg-desktop-portal-1.20.4.tar.xz"
+sha256 = "9528eb3b060b88ac82f294fbdc6af5f4d3adfa42575f2cd816cab3d3e0a7a68c"
 
 [build]
 system = "meson"

@@ -3,6 +3,7 @@ name = "spirv-headers"
 version = "1.4.341.0"
 description = "The SPIRV-Headers package contains headers that allow for applications to use the SPIR-V language and instruction set with Vulkan"
 source = "https://github.com/KhronosGroup/SPIRV-Headers/archive/vulkan-sdk-1.4.341.0/SPIRV-Headers-vulkan-sdk-1.4.341.0.tar.gz"
+sha256 = "cab0a654c4917e16367483296b44cdb1d614e3120c721beafcd37e3a8580486c"
 
 [build]
 system = "cmake"

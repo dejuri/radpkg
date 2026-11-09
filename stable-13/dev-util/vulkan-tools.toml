@@ -3,6 +3,7 @@ name = "vulkan-tools"
 version = "1.4.341.0"
 description = "Official Vulkan Development Tools"
 source = "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.341.tar.gz"
+sha256 = "a7d94a95e8c4b4331ab291638b16d1ce622cee9a1e65389790af3d3fbe2f98b7"
 
 [build]
 system = "cmake"

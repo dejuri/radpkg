@@ -3,6 +3,7 @@ name = "libbpf"
 version = "1.7.0"
 description = "Stand-alone build of libbpf from the Linux kernel"
 source = "https://github.com/libbpf/libbpf/archive/refs/tags/v1.7.0.tar.gz"
+sha256 = "7ab5feffbf78557f626f2e3e3204788528394494715a30fc2070fcddc2051b7b"
 
 [build]
 system = "manual"

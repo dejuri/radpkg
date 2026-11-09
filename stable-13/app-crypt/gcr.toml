@@ -3,9 +3,16 @@ name = "gcr"
 version = "3.41.2"
 description = "The Gcr package contains libraries used for displaying certificates and accessing key stores"
 source = "https://download.gnome.org/sources/gcr/3.41/gcr-3.41.2.tar.xz"
+sha256 = "bad10f3c553a0e1854649ab59c5b2434da22ca1a54ae6138f1f53961567e1ab7"
 
 [build]
 system = "manual"
-build_commands = "sed '/ssh.add/d; /ssh.agent/d' -i meson.build && sed -i 's:"/desktop:"/org:' schema/*.xml && mkdir build && meson setup build --prefix=/usr --buildtype=release -D gtk_doc=false -D ssh_agent=false && ninja -C build -j$RAD_CORES"
+build_commands = [
+	"sed '/ssh.add/d; /ssh.agent/d' -i meson.build",
+	"sed -i 's:\"/desktop:\"/org:' schema/*.xml",
+	"mkdir build", 
+	"meson setup build --prefix=/usr --buildtype=release -D gtk_doc=false -D ssh_agent=false",
+	"ninja -C build -j$RAD_CORES"
+]
 install_command = "ninja install -C build"
 depends = "gnupg"

@@ -3,6 +3,7 @@ name = "glslc"
 version = "2025.3"
 description = "The glslc program is Google's command line compiler for OpenGL Shading Language/High Level Shading Language (GLSL/HLSL) to Standard Portable Intermediate Representation (SPIR-V)"
 source = "https://github.com/google/shaderc/archive/v2025.3/shaderc-2025.3.tar.gz"
+sha256 = "a8e4a25e5c2686fd36981e527ed05e451fcfc226bddf350f4e76181371190937"
 
 [build]
 system = "manual"

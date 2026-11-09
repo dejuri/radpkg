@@ -3,6 +3,7 @@ name = "libaom"
 version = "3.13.3"
 description = "The libaom package contains a reference version of the Alliance for Open Media video codec"
 source = "https://storage.googleapis.com/aom-releases/libaom-3.13.3.tar.gz"
+sha256 = "446a4ae9741cb8f3eeb98c949d25f91b48cb2b8569cae975c4b737392e9024fc"
 
 [build]
 system = "manual"

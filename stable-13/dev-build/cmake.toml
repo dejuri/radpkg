@@ -3,6 +3,7 @@ name = "cmake"
 version = "4.3.3"
 description = "The CMake package contains a modern toolset used for generating Makefiles"
 source = "https://cmake.org/files/v4.3/cmake-4.3.3.tar.gz"
+sha256 = "cba4bb7a44edf2877bb6f059932896383babe435b3a8c3b5df48b4aa41c9bb85"
 
 [build]
 system = "manual"

@@ -3,6 +3,7 @@ name = "asio"
 version = "1.12.2"
 description = "Cross-platform C++ library for network and low-level I/O programming (standalone)"
 source = "https://sourceforge.net/projects/asio/files/asio/1.12.2%20%28Stable%29/asio-1.12.2.tar.gz"
+sha256 = "da5c9fd2726165dc85a4fd3cb86ccd2059ffaa332675aa861262f5b1923ce30e"
 
 [build]
 system = "autotools"

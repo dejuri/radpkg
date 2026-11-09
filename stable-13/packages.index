@@ -5,6 +5,7 @@ app-crypt/gnupg
 app-crypt/libassuan
 app-crypt/libksba
 app-editors/neovim
+app-emulation/wine
 app-metadata/appstream
 app-misc/fastfetch
 app-misc/hello
@@ -22,6 +23,7 @@ dev-cpp/asio
 dev-cpp/glibmm
 dev-cpp/nlohmann_json
 dev-debug/gdb
+dev-java/openjdk
 dev-lang/duktape
 dev-lang/luajit
 dev-lang/nasm
@@ -76,11 +78,14 @@ dev-util/glad
 dev-util/glslang
 dev-util/glslc
 dev-util/itstool
+dev-util/mingw64-headers
+dev-util/mingw64-runtime
 dev-util/spirv-headers
 dev-util/spirv-tools
 dev-util/vulkan-headers
 dev-util/vulkan-tools
 dev-vcs/git
+games-util/horizon-launcher
 games-util/steam-launcher
 gnome-base/gnome-desktop
 gnome-base/gnome-keyring
@@ -125,6 +130,7 @@ media-video/libva-utils
 media-video/mpv
 media-video/vlc
 net-dns/libidn2
+net-im/discord
 net-libs/libdatachannel
 net-libs/libpsl
 net-libs/librist

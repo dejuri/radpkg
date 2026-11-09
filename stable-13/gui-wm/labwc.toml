@@ -3,6 +3,7 @@ name = "labwc"
 version = "0.20.2"
 description = "Wayland window-stacking compositor, inspired by OpenBox"
 source = "https://github.com/labwc/labwc/archive/refs/tags/0.20.2.tar.gz"
+sha256 = "fae023b6fe022f7057556707a17cdb2d98e0138c5dffaedaa1dade975699f9e8"
 
 [build]
 system = "meson"

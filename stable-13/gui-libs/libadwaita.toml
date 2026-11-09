@@ -3,6 +3,7 @@ name = "libadwaita"
 version = "1.9.0"
 description = "The libadwaita package provides additional GTK4 UI widgets for use in developing user interfaces. It is used primarily for GNOME applications"
 source = "https://download.gnome.org/sources/libadwaita/1.9/libadwaita-1.9.0.tar.xz"
+sha256 = "817837bf06363db5bbfce66085136eff1436af6625dfabff3ca08b87bfca1b6b"
 
 [build]
 system = "meson"

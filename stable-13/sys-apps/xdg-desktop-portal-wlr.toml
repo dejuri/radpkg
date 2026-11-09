@@ -3,6 +3,7 @@ name = "xdg-desktop-portal-wlr"
 version = "0.7.1"
 description = "The xdg-desktop-portal-wlr package provides a portal backend for Wlroots compositors"
 source = "https://github.com/emersion/xdg-desktop-portal-wlr/archive/v0.7.1/xdg-desktop-portal-wlr-0.7.1.tar.gz"
+sha256 = "4bddc236aa9d1a2b33e7f0bef09a8712ded51e8bc335a2b6c8cd1d088863e676"
 
 [build]
 system = "meson"

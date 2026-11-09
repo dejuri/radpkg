@@ -3,8 +3,13 @@ name = "lame"
 version = "3.100"
 description = "The LAME package contains an MP3 encoder and optionally, an MP3 frame analyzer"
 source = "https://downloads.sourceforge.net/lame/lame-3.100.tar.gz"
+sha256 = "ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e"
 
 [build]
 system = "manual"
-build_commands = "sed -i -e 's/^\(\s*hardcode_libdir_flag_spec\s*=\).*/\1/' configure && ./configure --prefix=/usr --enable-mp3rtp --disable-static && make -j$RAD_CORES"
+build_commands = [
+	"sed -i -e 's/^\\(\\s*hardcode_libdir_flag_spec\\s*=\\).*/\\1/' configure",
+	"./configure --prefix=/usr --enable-mp3rtp --disable-static", 
+	"make -j$RAD_CORES"
+]
 install_command = "make pkghtmldir=/usr/share/doc/lame-3.100 install"

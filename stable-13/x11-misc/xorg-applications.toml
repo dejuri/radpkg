@@ -3,6 +3,7 @@ name = "xorg-applications"
 version = "1.0.0"
 description = "Basic X.Org applications and utilities (xrandr, xinit, xauth, etc.)"
 source = "https://www.x.org/pub/individual/app/xinit-1.4.2.tar.xz"
+sha256 = "b7d8dc8d22ef9f15985a10b606ee4f2aad6828befa437359934647e88d331f23"
 unfree = false
 
 [build]

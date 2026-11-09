@@ -1,0 +1,15 @@
+[package]
+name = "wine"
+version = "11.20"
+description = "Wine is a compatibility layer for running Windows programs on Unix"
+source = "https://dl.winehq.org/wine/source/11.x/wine-11.20.tar.xz"
+sha256 = "eac8ca448f9c0087f963026b4dc276d1e2b7fbb64056edc093e59bbb7e56fe28"
+
+[build]
+system = "manual"
+depends = "dev-util/mingw64-toolchain"
+build_commands = [
+	"./configure --prefix=$PREFIX --disable-tests $([ $RAD_MULTILIB = 1 ]; echo --enable-archs=x86_64,i386)",
+	"make -j$RAD_CORES"
+]
+install_command = "make DESTDIR=$DESTDIR install"

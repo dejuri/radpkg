@@ -3,6 +3,7 @@ name = "helium-bin"
 version = "0.14.9.1"
 description = "Privacy-first browser without distractions based on chromium"
 source = "https://github.com/imputnet/helium-linux/releases/download/0.14.9.1/helium-0.14.9.1-x86_64_linux.tar.xz"
+sha256 = "066617df12a9cd5b32c51c66ca93295d19e9ebe679c0b71a118f1a11837e673d"
 
 [build]
 system = "manual"

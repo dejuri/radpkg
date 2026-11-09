@@ -1,0 +1,15 @@
+[package]
+name = "mingw64-runtime"
+version = "14.0.0"
+description = "MinGW-w64 CRT and libraries"
+source = "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/mingw-w64-v14.0.0.tar.bz2"
+sha256 = "6eaf921d9eb987d3820b364ea9775bc19b965ec81490b6fdd716526c28e1995c"
+
+[build]
+system = "manual"
+depends = "dev-util/mingw64-headers"
+build_commands = [
+	"sh -c 'cd build; ./configure --prefix=$PREFIX/x86_64-w64-mingw32 --host=x86_64-w64-mingw32 $([ $RAD_MULTILIB = 1 ] && echo --enable-lib32 --disable-lib64 || echo --enable-lib64)'",
+	"make -j$RAD_CORES -C mingw-w64-crt"
+]
+install_command = "make DESTDIR=$DESTDIR -C mingw-w64-crt install"

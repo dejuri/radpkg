@@ -3,6 +3,7 @@ name = "vulkan-headers"
 version = "1.4.341.0"
 description = "The Vulkan-Headers package contains a set of header files necessary to build and link applications against the Vulkan API"
 source = "https://github.com/KhronosGroup/Vulkan-Headers/archive/vulkan-sdk-1.4.341.0/Vulkan-Headers-vulkan-sdk-1.4.341.0.tar.gz"
+sha256 = "d73bc5036b6556b741f6985ff600ca720308c5f2850e4a43ceb498bd3de069e7"
 
 [build]
 system = "cmake"

@@ -1,0 +1,16 @@
+# package for now is marked as unworking
+
+[package]
+name = "mingw64-toolchain"
+version = "14.0.0"
+description = "MinGW-w64 cross-toolchain for building Windows binaries in Wine"
+source = "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/mingw-w64-v14.0.0.tar.bz2"
+
+[build]
+depends = [
+    "dev-util/mingw64-headers",
+    "dev-util/mingw64-runtime"
+]
+system = "manual"
+build_commands = "sh -c 'GCC_INC=$(x86_64-w64-mingw32-gcc -print-file-name=include); env -u C_INCLUDE_PATH -u CPLUS_INCLUDE_PATH -u CPATH -u INCLUDE CFLAGS=\"-O2 -nostdinc -isystem $PREFIX/x86_64-w64-mingw32/include -isystem $GCC_INC -Wno-error=implicit-function-declaration -Wno-error=int-conversion\" ./configure --prefix=$PREFIX --host=x86_64-w64-mingw32 CC=x86_64-w64-mingw32-gcc CPP=\"x86_64-w64-mingw32-gcc -E\" --enable-lib64 $([ $RAD_MULTILIB = 1 ]; echo --enable-lib32); env -u C_INCLUDE_PATH -u CPLUS_INCLUDE_PATH -u CPATH -u INCLUDE make -j$RAD_CORES'"
+install_command = "make DESTDIR=$DESTDIR install"

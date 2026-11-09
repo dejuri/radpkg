@@ -3,6 +3,7 @@ name = "nspr"
 version = "4.39"
 description = "Netscape Portable Runtime (NSPR) provides a platform-neutral API for system level and libc like functions"
 source = "https://archive.mozilla.org/pub/nspr/releases/v4.39/src/nspr-4.39.tar.gz"
+sha256 = "bbd02ee87a55676063a63e5bc819e0227de2666b47307b2a0134414cdf42368e"
 
 [build]
 system = "manual"

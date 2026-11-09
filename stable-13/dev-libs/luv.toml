@@ -3,6 +3,7 @@ name = "luv"
 version = "git"
 description = "Bare libuv bindings for lua"
 source = "https://github.com/luvit/luv.git"
+sha256 = "264b633e6438bc3d43909fe36e21447aca166139b15a04d23352fa95898104af"
 
 [build]
 system = "manual"

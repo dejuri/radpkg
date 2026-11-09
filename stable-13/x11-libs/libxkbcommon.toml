@@ -3,6 +3,7 @@ name = "libxkbcommon"
 version = "1.13.2"
 description = "Keymap handling library for toolkits and window systems"
 source = "https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-1.13.2.tar.gz"
+sha256 = "acc4d5f7c3cbba5f9f8d08d8bdbeede84ecede46792f47929aa9321873385528"
 
 [build]
 system = "meson"

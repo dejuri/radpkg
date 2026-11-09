@@ -3,6 +3,7 @@ name = "cef-bin"
 version = "6533"
 description = "Chromium Embedded Framework (binary build from Spotify CDN)"
 source = "https://cdn-fastly.obsproject.com/downloads/cef_binary_6533_linux_x86_64.tar.xz"
+sha256 = "fab66dfc9cfd2e26fb87798f855aef30c2004edc8e19570d37af555644ae1655"
 
 [build]
 system = "manual"

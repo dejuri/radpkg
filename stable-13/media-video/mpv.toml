@@ -3,6 +3,7 @@ name = "mpv"
 version = "0.41.0"
 description = "mpv is a free media player for the command line. It supports a wide variety of media file formats, audio and video codecs, and subtitle types"
 source = "https://github.com/mpv-player/mpv/archive/v0.41.0/mpv-0.41.0.tar.gz"
+sha256 = "ee21092a5ee427353392360929dc64645c54479aefdb5babc5cfbb5fad626209"
 
 [build]
 system = "meson"

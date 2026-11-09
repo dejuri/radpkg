@@ -3,6 +3,7 @@ name = "dracut"
 version = "112"
 description = "dracut - the event driven initramfs infrastructure"
 source = "https://github.com/dracut-ng/dracut/archive/refs/tags/112.tar.gz"
+sha256 = "839d21eb4bd27bb0ee40d74c9da46df088c2e1425fcd8c3ea62b7e3a3dd28a91"
 
 [build]
 system = "autotools"

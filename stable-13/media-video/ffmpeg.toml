@@ -3,6 +3,7 @@ name = "ffmpeg"
 version = "8.1"
 description = "FFmpeg is a solution to record, convert and stream audio and video and bla bla bla and it is very fast btw"
 source = "https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz"
+sha256 = "b072aed6871998cce9b36e7774033105ca29e33632be5b6347f3206898e0756a"
 
 [build]
 system = "manual"

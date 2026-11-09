@@ -3,6 +3,7 @@ name = "sdl2-compat"
 version = "2.32.66"
 description = "The sdl2-compat package provides a compatibility layer for packages that require SDL2, utilizing SDL3 as the backend"
 source = "https://www.libsdl.org/release/sdl2-compat-2.32.66.tar.gz"
+sha256 = "ca83bb387fbba3882115783a3e7cf2dbbd2ad96e0ebbc8441cf716e7078b2412"
 
 [build]
 system = "manual"

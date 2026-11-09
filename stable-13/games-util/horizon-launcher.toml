@@ -1,0 +1,32 @@
+[package]
+name = "horizon-launcher"
+version = "0.2.97"
+description = "Minecraft: Java Edition rewritten in Rust"
+source = "https://github.com/horizon-rust/horizon/archive/refs/tags/v0.2.97.tar.gz"
+sha256 = "4153f459683163ca63a9ab9205590b67c897e2c95b6bd5ef04ab0ff1487c7f02"
+
+[build]
+system = "manual"
+depends = [
+	"dev-build/rustc",
+	"dev-java/openjdk"
+]
+build_commands = [
+	"cargo build --release -j$RAD_CORES"
+]
+install_commands = [
+	"mkdir $DESTDIR/opt/horizon-launcher $DESTDIR$PREFIX/bin -p",
+	"rm -f target/release/*.d",
+	"rm -f target/release/*.rlib",
+	"rm -rf target/release/incremental",
+	"rm -rf target/release/build",
+	"rm -rf target/release/deps",
+	"rm -rf target/release/examples",
+	"cp target/release/* $DESTDIR/opt/horizon-launcher/",
+	"cp research-lock.json $DESTDIR/opt/horizon-launcher/",
+	"cp -r tools $DESTDIR/opt/horizon-launcher/",
+	"ln -s /opt/horizon-launcher/horizon-client $DESTDIR$PREFIX/bin/horizon-client",
+	"ln -s /opt/horizon-launcher/horizon-ctl $DESTDIR$PREFIX/bin/horizon-ctl",
+	"ln -s /opt/horizon-launcher/horizon-server $DESTDIR$PREFIX/bin/horizon-server",
+	"ln -s /opt/horizon-launcher/horizon-prepare $DESTDIR$PREFIX/bin/horizon-prepare"
+]

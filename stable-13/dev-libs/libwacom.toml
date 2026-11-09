@@ -3,6 +3,7 @@ name = "libwacom"
 version = "2.20.0"
 description = "This is a library to identify graphics tablets and their model-specific features"
 source = "https://github.com/linuxwacom/libwacom/archive/refs/tags/libwacom-2.20.0.tar.gz"
+sha256 = "aad76712118a522133e90ad701b92a7c30b0334c459b8174777e4b31aab00ba7"
 
 [build]
 system = "meson"

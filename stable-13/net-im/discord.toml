@@ -1,0 +1,22 @@
+[package]
+name = "discord"
+version = "git"
+description = "Discord PROPRIETARY package. don't use this if you want to be cool man"
+source = "https://discord.com/api/download/stable?platform=linux&format=tar.gz"
+sha256 = "f25a97173c895a3f64d49261609f9c91309b20c1d4eb7670a2cb4caf808041c0"
+unfree = true
+
+[build]
+system = "manual"
+build_commands = [
+	"true"
+]
+install_commands = [
+	"mkdir $DESTDIR/opt/discord/bin/ $DESTDIR/opt/discord/usr/share/icons/256x256/ $DESTDIR/opt/discord/usr/share/applications/ $DESTDIR$PREFIX/share/applications/ $DESTDIR$PREFIX/share/icons/256x256/ $DESTDIR$PREFIX/bin/ -p",
+	"cp ./discord $DESTDIR/opt/discord/bin/discord",
+	"cp ./discord.desktop $DESTDIR/opt/discord/usr/share/applications/discord.desktop",
+	"cp ./discord.png $DESTDIR/opt/discord/usr/share/icons/256x256/discord.png",
+	"ln -s /opt/discord/usr/share/applications/discord.desktop $DESTDIR$PREFIX/share/applications/discord.desktop",
+	"ln -s /opt/discord/bin/discord $DESTDIR$PREFIX/bin/discord",
+	"ln -s /opt/discord/usr/share/icons/256x256/discord.png $DESTDIR$PREFIX/share/icons/256x256/discord.png"
+]

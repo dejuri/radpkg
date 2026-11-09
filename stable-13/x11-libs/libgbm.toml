@@ -3,6 +3,7 @@ name = "libgbm"
 version = "1.0.8"
 description = "This provides API functions for managing memory buffers"
 source = "https://github.com/glfs-book/libgbm/archive/1.0.8/libgbm-1.0.8.tar.gz"
+sha256 = "235ac65dc0dd8e4345c824e48f42fb81576b7a9521ecc01d0c40f038027dc68a"
 
 [build]
 system = "manual"

@@ -3,6 +3,7 @@ name = "swig"
 version = "4.5.1"
 description = "Simplified Wrapper and Interface Generator"
 source = "https://github.com/swig/swig/archive/refs/tags/v4.5.1.tar.gz"
+sha256 = "dd219a0c8947afe63b818892304390427c2ee7f6edfa1a37853d4efd891982be"
 
 [build]
 system = "manual"

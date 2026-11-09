@@ -2,6 +2,7 @@
 name = "openldap"
 version = "2.6.13"
 source = "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.13.tgz"
+sha256 = "d693b49517a42efb85a1a364a310aed16a53d428d1b46c0d31ef3fba78fcb656"
 description = "The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol"
 
 [build]

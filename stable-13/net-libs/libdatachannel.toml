@@ -3,6 +3,7 @@ name = "libdatachannel"
 version = "0.24.5"
 description = "C/C++ WebRTC network library"
 source = "https://github.com/paullouisageneau/libdatachannel/archive/refs/tags/v0.24.5.tar.gz"
+sha256 = "454537c3cd526bed935d847bb2dff4046f266eef84d43b2a5f2f2f293c0026f4"
 
 [build]
 system = "manual"

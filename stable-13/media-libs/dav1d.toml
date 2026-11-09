@@ -3,6 +3,7 @@ name = "dav1d"
 version = "1.5.3"
 description = "The dav1d package contains an AV1 decoder"
 source = "https://code.videolan.org/videolan/dav1d/-/archive/1.5.3/dav1d-1.5.3.tar.gz"
+sha256 = "cbe212b02faf8c6eed5b6d55ef8a6e363aaab83f15112e960701a9c3df813686"
 
 [build]
 system = "meson"

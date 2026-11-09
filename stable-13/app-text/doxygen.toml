@@ -3,6 +3,7 @@ name = "doxygen"
 version = "1.16.1"
 description = "A documentation generator for C, C++, Java, Python and more"
 source = "https://doxygen.nl/files/doxygen-1.16.1.src.tar.gz"
+sha256 = "201ce33b514ea87cc1697c0dcf829692c2695c1812683a9cc622194b05e263a8"
 
 [build]
 system = "manual"

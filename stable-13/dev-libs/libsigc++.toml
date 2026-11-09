@@ -3,6 +3,7 @@ name = "libsigc++"
 version = "2.12.1"
 description = "The libsigc++ package implements a typesafe callback system for standard C++"
 source = "https://download.gnome.org/sources/libsigc++/2.12/libsigc++-2.12.1.tar.xz"
+sha256 = "a9dbee323351d109b7aee074a9cb89ca3e7bcf8ad8edef1851f4cf359bd50843"
 
 [build]
 system = "manual"

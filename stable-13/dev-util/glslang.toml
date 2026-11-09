@@ -3,6 +3,7 @@ name = "glslang"
 version = "16.5.0"
 description = "The Glslang package contains an frontend and validator for OpenGL, OpenGL ES, and Vulkan shaders"
 source = "https://github.com/KhronosGroup/glslang/archive/16.5.0/glslang-16.5.0.tar.gz"
+sha256 = "01af17195fbeb59e39e31e9506de35bb39dfd35807ea0c9a1a99d7d1183ddd45"
 
 [build]
 system = "cmake"

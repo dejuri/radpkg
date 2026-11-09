@@ -3,6 +3,7 @@ name = "v4l2loopback"
 version = "0.15.4"
 description = "v4l2loopback - a kernel module to create virtual video devices"
 source = "https://github.com/v4l2loopback/v4l2loopback/archive/refs/tags/v0.15.4.tar.gz"
+sha256 = "21a17702648aa6a937b88a93bd71ef9f547815ead28719cafcfcc247396643dc"
 
 [build]
 system = "manual"

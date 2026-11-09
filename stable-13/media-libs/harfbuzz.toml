@@ -2,6 +2,7 @@
 name = "harfbuzz"
 version = "14.2.0"
 source = "https://github.com/harfbuzz/harfbuzz"
+sha256 = "5e7207f865fa261a8fcbe33ac402a712104b768ce768f2e1e5c50740ead80abf"
 description = "This package contains an OpenType text shaping engine"
 
 [build]

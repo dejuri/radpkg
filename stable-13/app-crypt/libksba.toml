@@ -3,6 +3,7 @@ name = "libksba"
 version = "1.6.8"
 description = "The Libksba package contains a library used to make X.509 certificates as well as making the CMS (Cryptographic Message Syntax) easily accessible by other applications"
 source = "https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.6.8.tar.bz2"
+sha256 = "0f4510f1c7a679c3545990a31479f391ad45d84e039176309d42f80cf41743f5"
 
 [build]
 system = "autotools"

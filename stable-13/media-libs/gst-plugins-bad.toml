@@ -3,6 +3,7 @@ name = "gst-plugins-bad"
 version = "1.28.1"
 description = "The GStreamer Bad Plug-ins package contains a set of plug-ins that aren't up to par compared to the rest"
 source = "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.28.1.tar.xz"
+sha256 = "56c1593787f8b5550893d59e4ff29e6bcccf34973316fa55e34ce493e04313a2"
 
 [build]
 system = "meson"

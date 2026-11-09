@@ -3,6 +3,7 @@ name = "dinit"
 version = "0.21.0"
 description = "Dinit is a service manager or supervision system, which can also function as a system manager and init"
 source = "https://github.com/davmac314/dinit/archive/refs/tags/v0.21.0.tar.gz"
+sha256 = "2621949e8d25f5f1a27196f68f0487cdfbd93fb3d21daf6093b2cd27c5a987be"
 
 [build]
 system = "autotools"

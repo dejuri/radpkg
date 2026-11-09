@@ -3,6 +3,7 @@ name = "gst-plugins-base"
 version = "1.28.1"
 description = "GStreamer Base Plugins with Player library"
 source = "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.28.1.tar.xz"
+sha256 = "1446a4c2a92ff5d78d88e85a599f0038441d53333236f0c72d72f21a9c132497"
 
 [build]
 system = "meson"

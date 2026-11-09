@@ -3,6 +3,7 @@ name = "niri"
 version = "26.04"
 description = "A scrollable-tiling wayland compositor"
 source = "https://github.com/niri-wm/niri/archive/refs/tags/v26.04.tar.gz"
+sha256 = "134c602d8e0d53413a52d6cd58f9ce7e79a07d03288ee0a51ba1abd5db1b1ad9"
 
 [build]
 system = "cargo"

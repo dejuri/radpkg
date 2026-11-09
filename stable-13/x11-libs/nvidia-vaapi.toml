@@ -3,6 +3,7 @@ name = "nvidia-vaapi"
 version = "0.0.16"
 description = "The nvidia-vaapi-driver is a VA-API implementation that uses NVDEC as a backend, designed for Firefox to accelerate web content decoding on NVIDIA GPU"
 source = "https://github.com/elFarto/nvidia-vaapi-driver/archive/refs/tags/v0.0.16.tar.gz"
+sha256 = "799244cab5ace62b6354e429bd56faa83045470c438fbea13690b4d06754eb8b"
 
 [build]
 system = "meson"
