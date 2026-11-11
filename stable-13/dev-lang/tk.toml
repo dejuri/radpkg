@@ -1,0 +1,20 @@
+[package]
+name = "tk"
+version = "8.6.18"
+description = "The Tk package contains a TCL GUI Toolkit"
+source = "https://downloads.sourceforge.net/tcl/tk8.6.18-src.tar.gz"
+sha256 = "ff3209f07a1a91dbd19b162d9536467756e1a0d4baa3e929a4ace7c46112f8dc"
+
+[build]
+system = "manual"
+build_commands = [
+	'sh -c "cd unix; ./configure --prefix=\$PREFIX --mandir=\$PREFIX/share/man \$([ \$(uname -m) = x86_64 ]; echo --enable-64bit)"',
+	'sh -c "cd unix; make -j\$RAD_CORES"',
+	'sh -c "cd unix; sed -e \"s@^\(TK_SRC_DIR=\x27\).*@\1\$PREFIX/include\x27@\" -e \"/TK_B/s@=\(\(-L\)\?.*unix\)@=\$PREFIX/lib@\" -i tkConfig.sh"'
+]
+install_commands = [
+	"make DESTDIR=$DESTDIR -C unix install",
+	"make DESTDIR=$DESTDIR -C unix install-private-headers",
+	"ln -sf wish8.6 $DESTDIR$PREFIX/bin/wish",
+	"chmod -v 755 $DESTDIR$PREFIX/lib/libtk8.6.so"
+]

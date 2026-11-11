@@ -1,0 +1,21 @@
+[package]
+name = "gdk-pixbuf"
+version = "2.44.8"
+description = "The Gdk Pixbuf package is a toolkit for image loading and pixel buffer manipulation"
+source = "https://download.gnome.org/sources/gdk-pixbuf/2.44/gdk-pixbuf-2.44.8.tar.xz"
+sha256 = "919f529512961a12e81cd4b4b466a48c3933469e7f9a310c6513cd4fb252ba3c"
+
+[build]
+system = "manual"
+depends = [
+	"glib"
+]
+build_commands = [
+	"mkdir build",
+	"meson setup build --prefix=$PREFIX --buildtype=release -D png=disabled -D gif=disabled -D jpeg=disabled -D tiff=disabled -D thumbnailer=disabled --wrap-mode=nofallback $(pkgconf glycin-2 || echo -D glycin=disabled)",
+	"ninja -C build -j$RAD_CORES"
+]
+install_commands = [
+	"DESTDIR=$DESTDIR ninja -C build install"
+]
+post_install = "gdk-pixbuf-query-loaders --update-cache"

@@ -1,0 +1,8 @@
+[package]
+name = "droidcam"
+version = "2.1.7"
+description = "GNU/Linux/nix client for DroidCam"
+source = "https://github.com/dev47apps/droidcam-linux-client/archive/refs/tags/v2.1.7.tar.gz"
+
+[build]
+system = "make"

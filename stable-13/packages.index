@@ -29,6 +29,7 @@ dev-lang/luajit
 dev-lang/nasm
 dev-lang/sassc
 dev-lang/swig
+dev-lang/tk
 dev-lang/zig
 dev-libs/boost
 dev-libs/cef-bin
@@ -70,6 +71,7 @@ dev-libs/uthash
 dev-libs/wayland
 dev-libs/wayland-protocols
 dev-libs/websocketpp
+dev-python/python
 dev-qt/qtbase
 dev-qt/qtsvg
 dev-qt/qtwayland
@@ -171,6 +173,7 @@ www-client/links
 x11-drivers/nvidia-drivers
 x11-libs/egl-gbm
 x11-libs/egl-wayland
+x11-libs/gdk-pixbuf
 x11-libs/libgbm
 x11-libs/libglvnd
 x11-libs/libxkbcommon

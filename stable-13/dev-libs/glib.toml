@@ -7,7 +7,7 @@ sha256 = "93c941aa17d5eb1d53fe838365f29a8b4e539c222a256d974ec8f30fc413e396"
 
 [build]
 system = "manual"
-depends = "libxslt,curl"
+depends = "libxslt,curl,python"
 build_commands = [
 	'printf "%s\n" "export BS=$PWD/bootstrap" "export PATH=\$BS/usr/bin:\$PATH" "export LD_LIBRARY_PATH=\$BS/usr/lib" "export PKG_CONFIG_PATH=\$BS/usr/lib/pkgconfig" "export PYTHONPATH=\$BS/usr/lib/gobject-introspection" "export XDG_DATA_DIRS=\$BS/usr/share:/usr/share" > bootstrap.env',
 

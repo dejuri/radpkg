@@ -1,0 +1,20 @@
+[package]
+name = "python"
+version = "3.13.7"
+description = "The Python 3 package contains the Python development environment"
+source = "https://www.python.org/ftp/python/3.13.7/Python-3.13.7.tar.xz"
+sha256 = "5462f9099dfd30e238def83c71d91897d8caa5ff6ebc7a50f14d4802cdaaa79a"
+
+[build]
+system = "manual"
+depends = "dev-lang/tk"
+build_commands = [
+	"localedef -i C -f UTF-8 C.UTF-8 || true",
+	"LANG=C.UTF-8 LC_ALL=C.UTF-8 ./configure --prefix=$PREFIX --enable-shared --with-system-expat --enable-optimizations --without-static-libpython",
+	"sed -i 's#^RUNSHARED[[:space:]]*=.*#& PYTHONPATH=$(PWD)/Lib#g' Makefile",
+	"LANG=C.UTF-8 LC_ALL=C.UTF-8 make PROFILE_TASK='' -j$RAD_CORES"
+]
+install_commands = [
+	"make DESTDIR=$DESTDIR install",
+	"install -v -dm755 $DESTDIR$PREFIX/share/doc/python-{version}/html"
+]
