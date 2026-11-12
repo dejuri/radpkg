@@ -96,6 +96,7 @@ gui-libs/gtk4
 gui-libs/libadwaita
 gui-libs/libdecor
 gui-misc/lydm
+gui-misc/niri-scratchpad
 gui-wm/labwc
 gui-wm/niri
 media-gfx/imagemagick

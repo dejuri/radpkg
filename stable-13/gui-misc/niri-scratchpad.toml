@@ -1,0 +1,14 @@
+[package]
+name = "niri-scratchpad"
+version = "0.0.3"
+description = ""
+source = "https://github.com/gvolpe/niri-scratchpad/archive/refs/tags/v0.0.3.tar.gz"
+sha256 = "a68d8265f41ce8d36bc54025044a320ba4b672a983b1311b84da0a18516d66b8"
+
+[build]
+system = "manual"
+build_commands = "true"
+install_commands = [
+	"mkdir $DESTDIR$PREFIX/bin -p",
+	"cp src/ns.py $DESTDIR$PREFIX/bin/nscratch"
+]
