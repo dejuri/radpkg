@@ -16,5 +16,6 @@ build_commands = [
 ]
 install_commands = [
 	"make DESTDIR=$DESTDIR install",
+	"ln -sf pip3.13 $DESTDIR$PREFIX/bin/pip",
 	"install -v -dm755 $DESTDIR$PREFIX/share/doc/python-{version}/html"
 ]
