@@ -16,6 +16,7 @@ build_commands = [
 ]
 install_commands = [
 	"make DESTDIR=$DESTDIR install",
-	"ln -sf pip3.13 $DESTDIR$PREFIX/bin/pip",
-	"install -v -dm755 $DESTDIR$PREFIX/share/doc/python-{version}/html"
+	"install -v -dm755 $DESTDIR$PREFIX/share/doc/python-{version}/html",
+	"printf '#!/usr/bin/python3.13\\nimport sys\\nfrom pip._internal.cli.main import main\\nif __name__ == '\\''__main__'\\'':\\n    if sys.argv[0].endswith('\\''.exe'\\''):\\n        sys.argv[0] = sys.argv[0][:-4]\\n    sys.exit(main())\\n' > $DESTDIR$PREFIX/bin/pip3.13",
+	"ln -sf pip3.13 $DESTDIR$PREFIX/bin/pip"
 ]
