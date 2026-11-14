@@ -1,9 +1,9 @@
 [package]
 name = "rad"
-version = "26.11.9"
+version = "26.11.14"
 description = "A utility for managing TOML-format packages of your own repository (source-based)"
-source = "https://github.com/dejuri/rad/archive/refs/tags/26.11.9.tar.gz"
-sha256 = "0cd0f8be23b3b484f50646124db89e73b34a13602ba9585d6f2198042fbe0202"
+source = "https://github.com/dejuri/rad/archive/refs/tags/26.11.14.tar.gz"
+sha256 = "895bd30786d2b256f774e1cacbcb494cb4a346228369944cb2c7b99e132e2f43"
 
 [build]
 system = "cargo"
