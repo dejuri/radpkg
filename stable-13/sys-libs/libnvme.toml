@@ -1,0 +1,10 @@
+[package]
+name = "libnvme"
+version = "1.16.2"
+description = "The libnvme package is a library which provides type definitions for NVMe specification structures, enumerations, and bit fields, helper functions to construct, dispatch, and decode commands and payloads, and utilities to connect, scan, and manage NVMe devices on a Linux system"
+source = "https://github.com/linux-nvme/libnvme/archive/v1.16.2/libnvme-1.16.2.tar.gz"
+sha256 = "1d850d5a871559abf641d6e6b63bb86047e4cb26f3ad144597c2c64b3cff7231"
+
+[build]
+system = "meson"
+configure_args = "-Dlibdbus=auto"

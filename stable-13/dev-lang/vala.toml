@@ -1,0 +1,10 @@
+[package]
+name = "vala"
+version = "0.56.19"
+description = "Vala is a new programming language that aims to bring modern features to GNOME"
+source = "https://download.gnome.org/sources/vala/0.56/vala-0.56.19.tar.xz"
+sha256 = "5ad7cbbfcc0de61b403d6797c9ef60455bfbebd8e162aec33b5b0b097adfb9d5"
+
+[build]
+system = "autotools"
+depends = "glib,graphviz"

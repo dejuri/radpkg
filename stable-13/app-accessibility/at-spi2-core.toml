@@ -1,0 +1,17 @@
+[package]
+name = "at-spi2-core"
+version = "2.62.1"
+description = "The At-Spi2 Core package contains a comprehensive accessibility framework for the Assistive Technologies"
+source = "https://download.gnome.org/sources/at-spi2-core/2.62/at-spi2-core-2.62.1.tar.xz"
+sha256 = "cca6b6a86e4389d89b370288761ce2385ddeceb10c4412da78689bc30c88af2d"
+
+[build]
+system = "manual"
+depends = "dbus,glib,gsettings-desktop-schemas,xorg-libs"
+build_commands = [
+	"mkdir build",
+	"meson setup build --prefix=$PREFIX --buildtype=release -D gtk2_atk_adaptor=false -D systemd_user_dir=/tmp",
+	"ninja -j$RAD_CORES -C build"
+]
+install_command = "DESTDIR=$DESTDIR ninja install -C build"
+post_install = "rm /tmp/at-spi-dbus-bus.service"

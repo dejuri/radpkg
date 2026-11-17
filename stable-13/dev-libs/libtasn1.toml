@@ -1,0 +1,16 @@
+[package]
+name = "libtasn1"
+version = "4.21.0"
+description = "libtasn1 is a highly portable C library that encodes and decodes DER/BER data following an ASN.1 schema"
+source = "https://gitlab.com/gnutls/libtasn1/-/archive/v4.21.0/libtasn1-v4.21.0.tar.gz"
+sha256 = "548ba3b7a30cc3feeeddd1833d9e4bbc86e7cea56496ad9efcf9507e47b17f8a"
+
+[build]
+system = "manual"
+build_commands = [
+	"./bootstrap",
+	"./configure --prefix=$PREFIX --disable-static",
+	"printf '#!/bin/sh\\nwhile [ \"$#\" -gt 0 ]; do if [ \"$1\" = \"-o\" ] || [ \"$1\" = \"--output\" ]; then touch \"$2\"; exit 0; fi; shift; done\\ntouch asn1Coding.1 asn1Parser.1 asn1Decoding.1\\nexit 0\\n' > help2man && chmod +x help2man",
+	"make HELP2MAN=$PWD/help2man -j$RAD_CORES"
+]
+install_command = "make DESTDIR=$DESTDIR install"

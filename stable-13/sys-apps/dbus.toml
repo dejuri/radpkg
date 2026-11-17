@@ -1,0 +1,22 @@
+[package]
+name = "dbus"
+version = "1.16.4"
+description = "D-Bus is a message bus system, a simple way for applications to talk to one another"
+source = "https://dbus.freedesktop.org/releases/dbus/dbus-1.16.4.tar.xz"
+sha256 = "d08b05526c2cb7966a5fb79210d6112b1aca3d135f315c1b302e14b4b0297dac"
+
+[build]
+system = "manual"
+depends = "xorg-libs"
+build_commands = [
+	"mkdir build",
+	"meson setup build --prefix=$PREFIX --buildtype=release --wrap-mode=nofallback -D systemd=disabled",
+	"ninja -j$RAD_CORES -C build"
+]
+install_commands = [
+	"DESTDIR=$DESTDIR ninja install -C build",
+	"chown -v root:messagebus $DESTDIR$PREFIX/libexec/dbus-daemon-launch-helper",
+	"chmod -v 4750 $DESTDIR$PREFIX/libexec/dbus-daemon-launch-helper"
+]
+post_install = "dbus-uuidgen --ensure"
+

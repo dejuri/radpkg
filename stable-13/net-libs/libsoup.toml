@@ -1,0 +1,17 @@
+[package]
+name = "libsoup"
+version = "3.8.1"
+description = "The libsoup3 is a HTTP client/server library for GNOME. It uses GObject and the GLib main loop to integrate with GNOME applications and it also has an asynchronous API for use in threaded applications"
+source = "https://download.gnome.org/sources/libsoup/3.8/libsoup-3.8.1.tar.xz"
+sha256 = "5013dcef9136f6f861e6529fca578af50c1f52a39219027fb5aff652d1371a04"
+
+[build]
+system = "manual"
+depends = "glib-networking,libpsl,libxml2,nghttp2"
+build_commands = [
+	"sed 's/apiversion/soup_version/' -i docs/reference/meson.build",
+	"mkdir build",
+	"meson setup --prefix=$PREFIX --buildtype=release --wrap-mode=nofallback build",
+	"ninja -C build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR ninja -C build install"

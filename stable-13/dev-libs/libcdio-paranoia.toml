@@ -1,0 +1,11 @@
+[package]
+name = "libcdio-paranoia"
+version = "10.2+2.0.2"
+description = "libcdio-cdparanoia library reads audio from the CD-ROM directly as data, with no analog step between, and writes the data to a file or pipe as .wav, .aifc or as raw 16 bit linear PCM"
+source = "https://ftpmirror.gnu.org/libcdio/libcdio-paranoia-10.2+2.0.2.tar.bz2"
+sha256 = "186892539dedd661276014d71318c8c8f97ecb1250a86625256abd4defbf0d0c"
+
+[build]
+system = "autotools"
+depends = "libcdio"
+configure_args = "--disable-static"

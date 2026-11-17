@@ -1,0 +1,10 @@
+[package]
+name = "libcrypt"
+version = "1.12.4"
+description = "The libgcrypt package contains a general purpose crypto library based on the code used in GnuPG"
+source = "https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.12.4.tar.bz2"
+sha256 = "d77f68f48879510e79a2f65977ccc68981781ea0923e5bdffac2a193ea3d660e"
+
+[build]
+system = "autotools"
+depends = "libgpg-error"

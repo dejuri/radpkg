@@ -1,0 +1,17 @@
+[package]
+name = "graphviz"
+version = "16.1.1"
+description = "The Graphviz package contains graph visualization software"
+source = "https://gitlab.com/graphviz/graphviz/-/archive/16.1.1/graphviz-16.1.1.tar.bz2"
+sha256 = "dd83d4ed90d92ab84fd512d17b5bb6b002ee72a5d7009a9c8824afaa3fbc0083"
+
+[build]
+system = "manual"
+depends = "cmake,make,pango,cairo,xorg-libs,fontconfig,libpng"
+build_commands = [
+	"sed '/ORIGIN/d' -i lib/CMakeLists.txt",
+	"cmake -B build -D CMAKE_INSTALL_PREFIX=$PREFIX -D CMAKE_BUILD_TYPE=Release -D ENABLE_RUBY=OFF",
+	"sed -i '/GZIP/s/:.*$/=/' build/CMakeCache.txt",
+	"make -C build -j$RAD_CORES"
+]
+install_command = "make -C build DESTDIR=$DESTDIR install"

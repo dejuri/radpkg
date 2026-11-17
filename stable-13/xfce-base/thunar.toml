@@ -1,0 +1,21 @@
+[package]
+name = "thunar"
+version = "4.20.0"
+description = "Thunar is the Xfce file manager, a GTK+ 3 GUI to organise the files on your computer"
+source = "https://archive.xfce.org/xfce/4.20/src/thunar-4.20.0.tar.bz2"
+sha256 = "27731a76f3aecf3752b1ca35afad89e264c52244f70083d933507dd4a17548b0"
+
+[build]
+system = "manual"
+depends = [
+	"exo",
+	"hicolor-icon-theme",
+	"libgudev",
+	"libnotify"
+]
+build_commands = [
+	"sed -i 's/\\tinstall-systemd_userDATA/\\t/' Makefile.in",
+	"./configure --prefix=$PREFIX --sysconfdir=/etc --docdir=/usr/share/doc/thunar-{version}",
+	"make -j$RAD_CORES"
+]
+install_command = "make DESTDIR=$DESTDIR install"

@@ -1,0 +1,14 @@
+[package]
+name = "pango"
+version = "1.58.2"
+description = "Pango is a library for laying out and rendering text, with an emphasis on internationalization"
+source = "https://download.gnome.org/sources/pango/1.58/pango-1.58.2.tar.xz"
+sha256 = "342385b6ca3b7c73455d7c80a13b7dbe4489e00bc3bd4c5bd6ed4dce421e374a"
+
+[build]
+system = "meson"
+depends = "xorg-libs,freetype,harfbuzz,fontconfig,fribidi,glib,cairo"
+configure_args = [
+	"--wrap-mode=nofallback",
+	"-Dintrospection=enabled"
+]

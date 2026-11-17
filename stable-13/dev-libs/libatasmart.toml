@@ -1,0 +1,14 @@
+[package]
+name = "libatasmart"
+version = "0.19"
+description = "The libatasmart package is a disk reporting library. It only supports a subset of the ATA S.M.A.R.T. functionality"
+source = "https://0pointer.de/public/libatasmart-0.19.tar.xz"
+sha256 = "61f0ea345f63d28ab2ff0dc352c22271661b66bf09642db3a4049ac9dbdb0f8d"
+
+[build]
+system = "manual"
+build_commands = [
+	"./configure --prefix=$PREFIX --disable-static",
+	"make -j$RAD_CORES"
+]
+install_command = "make docdir=/usr/share/doc/libatasmart-{version} install"

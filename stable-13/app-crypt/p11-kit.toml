@@ -1,0 +1,21 @@
+[package]
+name = "p11-kit"
+version = "0.26.6"
+description = "The p11-kit package provides a way to load and enumerate PKCS #11 modules"
+source = "https://github.com/p11-glue/p11-kit/releases/download/0.26.6/p11-kit-0.26.6.tar.xz"
+sha256 = "5fda95dc89964af32dbd8e01b139c166717cf96c4fee3d601bcd60bdb23d23c6"
+
+[build]
+system = "manual"
+depends = "libtasn1"
+build_commands = [
+	"sed '20,$ d' -i trust/trust-extract-compat",
+	"printf \"# Copy existing anchor modifications to /etc/ssl/local\\n/usr/libexec/make-ca/copy-trust-modifications\\n\\n# Update trust stores\\n/usr/sbin/make-ca -r\" > trust/trust-extract-compat",
+	"mkdir p11-build",
+	"meson setup p11-build --prefix=$PREFIX --buildtype=release -D trust_paths=/etc/pki/anchors",
+	"ninja -j$RAD_CORES -C p11-build"
+]
+install_commands = [
+	"DESTDIR=$DESTDIR ninja -C p11-build install",
+	"ln -sfv $PREFIX/libexec/p11-kit/trust-extract-compat $DESTDIR$PREFIX/bin/update-ca-certificates"
+]

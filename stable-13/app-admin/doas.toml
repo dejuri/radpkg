@@ -1,9 +1,14 @@
 [package]
 name = "doas"
-version = "6.3p12"
-description = "Lightweight sudo alternative from openbsd"
-source = "https://github.com/slicer69/doas/archive/refs/tags/6.3p12.tar.gz"
-sha256 = "e4f37745345c12d4e0c8c03c8237791729cf047dbd7b2455f8de60e2f82ac1b0"
+version = "6.8.2"
+description = "A portable fork of the OpenBSD ``doas`` command"
+source = "https://github.com/Duncaen/OpenDoas/releases/download/v6.8.2/opendoas-6.8.2.tar.gz"
+sha256 = "28dca29adec5f4336465812d9e2243f599e62a78903de71c24f0cd6fe667edac"
 
 [build]
-system = "make"
+system = "manual"
+build_commands = [
+	"./configure --prefix=$PREFIX --with-timestamp",
+	"make -j$RAD_CORES"
+]
+install_command = "make DESTDIR=$DESTDIR install"

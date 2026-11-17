@@ -1,0 +1,14 @@
+[package]
+name = "gtk3"
+version = "3.24.52"
+description = "The GTK3 package contains libraries used for creating graphical user interfaces for applications"
+source = "https://download.gnome.org/sources/gtk/3.24/gtk-3.24.52.tar.xz"
+sha256 = "80931fa472a77b9a164f6740e3c0b444fac6770054632d35a7ff9d679e5e7b9f"
+
+[build]
+system = "meson"
+depends = "at-spi2-core,gdk-pixbuf,libepoxy,pango,libxkbcommon,wayland,wayland-protocols"
+configure_args = [
+	"-Dman=false",
+	"-Dbroadway_backend=true"
+]

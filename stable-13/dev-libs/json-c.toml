@@ -1,0 +1,15 @@
+[package]
+name = "json-c"
+version = "0.19"
+description = "The json-c implements a reference counting object model that allows you to easily construct JSON objects in C, output them as JSON formatted strings and parse JSON formatted strings back into the C representation of JSON objects"
+source = "https://s3.amazonaws.com/json-c_releases/releases/json-c-0.19.tar.gz"
+sha256 = "37ad0249902e301bd9052bf712e511fcc6acff4ecaad4b5900aad9ce564e26de"
+
+[build]
+system = "manual"
+depends = "cmake"
+build_commands = [
+	"cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_BUILD_TYPE=Release -DBUILD_STATIC_LIBS=OFF",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"

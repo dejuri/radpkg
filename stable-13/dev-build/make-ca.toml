@@ -1,0 +1,18 @@
+[package]
+name = "make-ca"
+version = "1.16.1"
+description = "Public Key Infrastructure is a method to validate the authenticity of an otherwise unknown entity across untrusted networks"
+source = "https://github.com/lfs-book/make-ca/archive/v1.16.1/make-ca-1.16.1.tar.gz"
+sha256 = "98c7e6fded1938b972d0177b5d5e925d318be87f84ee9e4cad680656a8c29414"
+
+[build]
+system = "manual"
+depends = "libtasn1,p11-kit,nss"
+build_commands = [
+	"sed '/mktemp/s/-t //' -i make-ca"
+]
+install_commands = [
+	"make DESTDIR=$DESTDIR install",
+	"install -vdm755 $DESTDIR/etc/ssl/local"
+]
+post_install = "/usr/sbin/make-ca -g"

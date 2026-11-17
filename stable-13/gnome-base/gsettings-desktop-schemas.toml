@@ -1,0 +1,18 @@
+[package]
+name = "gsettings-desktop-schemas"
+version = "51.0"
+description = "The GSettings Desktop Schemas package contains a collection of GSettings schemas for settings"
+source = "https://download.gnome.org/sources/gsettings-desktop-schemas/51/gsettings-desktop-schemas-51.0.tar.xz"
+sha256 = "1e2419a5f21d26c324b28ae1c00e29e9175e8b596fff385a04c2172b36652226"
+
+[build]
+system = "manual"
+depends = "glib"
+build_commands = [
+	"sed -i -r 's:\"(/system):\"/org/gnome\\1:g' schemas/*.in",
+	"mkdir build",
+	"meson setup --prefix=$PREFIX --buildtype=release build",
+	"ninja -j$RAD_CORES -C build"
+]
+install_command = "DESTDIR=$DESTDIR ninja install -C build"
+post_install = "glib-compile-schemas /usr/share/glib-2.0/schemas"

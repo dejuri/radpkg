@@ -1,0 +1,25 @@
+[package]
+name = "gvfs"
+version = "1.62.0"
+description = "The Gvfs package is a userspace virtual filesystem designed to work with the I/O abstractions of GLib's GIO library"
+source = "https://download.gnome.org/sources/gvfs/1.62/gvfs-1.62.0.tar.xz"
+sha256 = "dd8e6c255fd3bed5eeb190b59027c88b38e63c1be0932ddce9cfeb48f3c43d0f"
+
+[build]
+system = "meson"
+depends = "dbus,glib,gcr4,libusb,libsecret,fuse,udisks,libcdio-paranoia,libsoup"
+configure_args = [
+	"-Dfuse=true",
+	"-Dgphoto2=false",
+	"-Dafc=false",
+	"-Dbluray=false",
+	"-Dnfs=false",
+	"-Dmtp=false",
+	"-Dsmb=false",
+	"-Dtmpfilesdir=no",
+	"-Ddnssd=false",
+	"-Dgoa=false",
+	"-Dsystemduserunitdir=no",
+	"-Donedrive=false"
+]
+post_install = "glib-compile-schemas /usr/share/glib-2.0/schemas"

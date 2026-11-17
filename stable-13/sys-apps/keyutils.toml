@@ -1,0 +1,10 @@
+[package]
+name = "keyutils"
+version = "1.6.3"
+description = "Keyutils is a set of utilities for managing the key retention facility in the kernel, which can be used by filesystems, block devices and more to gain and retain the authorization and encryption keys required to perform secure operations"
+source = "https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/snapshot/keyutils-1.6.3.tar.gz"
+
+[build]
+system = "manual"
+build_commands = "make -j$RAD_CORES"
+install_command = "make DESTDIR=$DESTDIR NO_ARLIB=1 LIBDIR=$PREFIX/lib BINDIR=$PREFIX/bin SBINDIR=$PREFIX/sbin install"

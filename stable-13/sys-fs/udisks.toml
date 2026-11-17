@@ -1,0 +1,16 @@
+[package]
+name = "udisks"
+version = "2.12.0"
+description = "The UDisks package provides a daemon, tools and libraries to access and manipulate disks and storage devices"
+source = "https://github.com/storaged-project/udisks/releases/download/udisks-2.12.0/udisks-2.12.0.tar.bz2"
+sha256 = "dd709167fddf07b14f8175dbb3ab0c372147f66b437cc2341a9f97d79303c71f"
+
+[build]
+system = "manual"
+depends = "libblockdev,libgudev,polkit,glib,gobject-introspection"
+build_commands = [
+	"./configure --prefix=$PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static --disable-gtk-doc",
+	"sed -i '/^SUBDIRS =/s/doc//' Makefile",
+	"make -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR make install"

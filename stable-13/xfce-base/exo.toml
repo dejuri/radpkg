@@ -1,0 +1,11 @@
+[package]
+name = "exo"
+version = "4.20.0"
+description = "Exo is a support library used in the Xfce desktop"
+source = "https://archive.xfce.org/src/xfce/exo/4.20/exo-4.20.0.tar.bz2"
+sha256 = "4277f799245f1efde01cd917fd538ba6b12cf91c9f8a73fe2035fd5456ec078d"
+
+[build]
+system = "autotools"
+depends = "gtk3,libxfce4ui,libxfce4util"
+configure_args = "--sysconfdir=/etc"

@@ -1,0 +1,16 @@
+[package]
+name = "libnotify"
+version = "0.8.9"
+description = "The libnotify library is used to send desktop notifications to a notification daemon"
+source = "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.9.tar.xz"
+sha256 = "c906bb084027ea512f94a60fbfc0cc8d4f17e4b4d525bed370d07a6d8714c923"
+
+[build]
+system = "meson"
+depends = "gdk-pixbuf,gtk4,glib"
+configure_args = [
+	"-Dgtk_doc=false",
+	"-Dtests=false",
+	"-Dman=false",
+	"-Ddocbook_docs=disabled"
+]
