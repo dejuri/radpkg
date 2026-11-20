@@ -1,0 +1,20 @@
+[package]
+name = "llvm"
+version = "23.1.0"
+description = "The LLVM package contains a collection of modular and reusable compiler and toolchain technologies"
+source = "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.0/llvm-project-23.1.0.src.tar.xz"
+sha256 = "ab1f0e3ec52448c33e8782eaf0422504b87c7b016b22514653ee0d8fcee479ff"
+
+[build]
+system = "manual"
+depends = "cmake"
+build_commands = [
+	"grep -rl '#!.*python$' | xargs sed -i '1s/python$/python3/'",
+	"sed 's/utility/tool/' -i llvm/utils/FileCheck/CMakeLists.txt",
+	"mkdir -pv $DESTDIR/etc/clang",
+	"for i in clang clang++; do echo -fstack-protector-strong > $DESTDIR/etc/clang/$i.cfg; done",
+	"mkdir -v llvm/build",
+	"CC=gcc CXX=g++ cmake -B llvm/build -D CMAKE_INSTALL_PREFIX=$PREFIX -D CMAKE_SKIP_INSTALL_RPATH=ON -D LLVM_ENABLE_FFI=ON -D CMAKE_BUILD_TYPE=Release -D LLVM_BUILD_LLVM_DYLIB=ON -D LLVM_LINK_LLVM_DYLIB=ON -D LLVM_ENABLE_RTTI=ON -D LLVM_TARGETS_TO_BUILD=\"host;host\" -D LLVM_ENABLE_PROJECTS=clang -D LLVM_ENABLE_RUNTIMES=compiler-rt -D LLVM_BINUTILS_INCDIR=$PREFIX/include -D LLVM_INCLUDE_BENCHMARKS=OFF -D CLANG_DEFAULT_PIE_ON_LINUX=ON -D CLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang -W no-author -G Ninja llvm",
+	"ninja -j$RAD_CORES -C llvm/build"
+]
+install_command = "DESTDIR=$DESTDIR ninja -C llvm/build install"

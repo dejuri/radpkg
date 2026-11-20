@@ -1,0 +1,26 @@
+[package]
+name = "rust"
+version = "1.100.0"
+description = "The Rust programming language is designed to be a safe, concurrent, practical language"
+source = "https://static.rust-lang.org/dist/rustc-1.100.0-src.tar.xz"
+sha256 = "90dab90b8084eb57c35ae2b1d0b70c8e5138ace6023b22c60a5a400f586f63b2"
+
+[build]
+system = "manual"
+depends = "cmake,curl,make-ca,llvm,libssh2"
+build_commands = [
+	"mkdir -pv $DESTDIR/opt/rustc-{version}",
+	"ln -svfn rustc-{version} $DESTDIR/opt/rustc",
+	"printf 'change-id = 162423\n[llvm]\nlink-shared = true\ntargets = \"X86\"\n[build]\ndescription = \"for Radian (radpkg)\"\ndocs = false\ntools = [\"cargo\", \"clippy\", \"rustdoc\", \"rustfmt\", \"src\"]\n[install]\nprefix = \"'$DESTDIR'/opt/rustc-{version}\"\ndocdir = \"share/doc/rustc-{version}\"\n[rust]\nchannel = \"stable\"\nlto = \"thin\"\ncodegen-units = 1\nllvm-bitcode-linker = false\n[target.x86_64-unknown-linux-gnu]\nllvm-config = \"'$PREFIX'/bin/llvm-config\"\n[target.i686-unknown-linux-gnu]\nllvm-config = \"'$PREFIX'/bin/llvm-config\"\n' > bootstrap.toml",
+	"LIBSSH2_SYS_USE_PKG_CONFIG=1 LIBSQLITE3_SYS_USE_PKG_CONFIG=1 ./x.py build"
+]
+install_commands = [
+	"mkdir -p $DESTDIR$PREFIX/share/bash-completion/completions/ $DESTDIR/etc/profile.d/",
+	"LIBSSH2_SYS_USE_PKG_CONFIG=1 LIBSQLITE3_SYS_USE_PKG_CONFIG=1 ./x.py install",
+	"rm -fv $DESTDIR/opt/rustc-1.100.0/share/doc/rustc-{version}/*.old",
+	"install -vm644 README.md $DESTDIR/opt/rustc-1.100.0/share/doc/rustc-{version}",
+	"install -vdm755 $DESTDIR$PREFIX/share/zsh/site-functions",
+	"ln -sfv /opt/rustc/share/zsh/site-functions/_cargo $DESTDIR$PREFIX/share/zsh/site-functions",
+	"mv -v $DESTDIR/etc/bash_completion.d/cargo $DESTDIR$PREFIX/share/bash-completion/completions",
+	"printf 'pathprepend /opt/rustc/bin PATH\n' > $DESTDIR/etc/profile.d/rustc.sh"
+]

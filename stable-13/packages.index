@@ -23,7 +23,6 @@ app-text/scdoc
 app-text/xmlto
 dev-build/cmake
 dev-build/make-ca
-dev-build/rustc
 dev-cpp/asio
 dev-cpp/glibmm
 dev-cpp/nlohmann_json
@@ -32,6 +31,7 @@ dev-java/openjdk
 dev-lang/duktape
 dev-lang/luajit
 dev-lang/nasm
+dev-lang/rust
 dev-lang/sassc
 dev-lang/swig
 dev-lang/tk
@@ -119,6 +119,7 @@ gui-misc/lydm
 gui-misc/niri-scratchpad
 gui-wm/labwc
 gui-wm/niri
+llvm-core/llvm
 media-gfx/graphviz
 media-gfx/imagemagick
 media-libs/dav1d
@@ -163,6 +164,7 @@ net-libs/libpsl
 net-libs/librist
 net-libs/libsoup
 net-libs/libsrtp
+net-libs/libssh2
 net-libs/mbedtls
 net-libs/nghttp2
 net-libs/srt
