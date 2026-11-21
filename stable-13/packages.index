@@ -115,7 +115,7 @@ gui-libs/gtk3
 gui-libs/gtk4
 gui-libs/libadwaita
 gui-libs/libdecor
-gui-misc/lydm
+gui-misc/ly
 gui-misc/niri-scratchpad
 gui-wm/labwc
 gui-wm/niri

@@ -1,5 +1,5 @@
 [package]
-name = "lydm"
+name = "ly"
 version = "1.4.1"
 description = "Ly is a lightweight TUI display manager for Linux and BSD"
 source = "https://codeberg.org/fairyglade/ly/archive/v1.4.1.tar.gz"
@@ -8,5 +8,5 @@ sha256 = "4d1c10422e6c5b8d5a795150e4c364c82404f900c1a04318b83fe8d81fade58b"
 [build]
 system = "manual"
 build_commands = "true"
-install_command = "DESTDIR=$DESTDIR zig build -Doptimize=ReleaseFast -Dinit_system=dinit --prefix /usr"
+install_command = "DESTDIR=$DESTDIR zig build -Doptimize=ReleaseFast -Dinit_system=dinit --prefix $PREFIX"
 depends = "zig"
