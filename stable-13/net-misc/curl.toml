@@ -8,8 +8,8 @@ sha256 = "aa1b66a70eace83dc624508745646c08ae561de512ab403adffb93ac87fc72e6"
 [build]
 system = "manual"
 build_commands = [
-	"./configure --prefix=/usr --disable-static --with-openssl --with-ca-path=/etc/ssl/certs",
+	"./configure --prefix=$PREFIX --disable-static --with-openssl --with-ca-path=/etc/ssl/certs",
 	"make -j$RAD_CORES"
 ] 
 install_command = "make DESTDIR=$DESTDIR install"
-depends = "libpsl,nghttp2"
+depends = "libpsl,nghttp2,make-ca"
