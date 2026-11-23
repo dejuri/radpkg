@@ -11,7 +11,8 @@ depends = [
 	"exo",
 	"hicolor-icon-theme",
 	"libgudev",
-	"libnotify"
+	"libnotify",
+	"tumbler"
 ]
 build_commands = [
 	"sed -i 's/\\tinstall-systemd_userDATA/\\t/' Makefile.in",

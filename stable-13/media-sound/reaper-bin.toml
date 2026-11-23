@@ -12,7 +12,7 @@ build_commands = "true"
 install_commands = [
 	"mkdir -p $DESTDIR/opt/reaper/bin $DESTDIR/opt/reaper/lib $DESTDIR$PREFIX/bin $DESTDIR$PREFIX/share/applications $DESTDIR$PREFIX/share/icons/hicolor/256x256/apps",
 	"cp -r REAPER/* $DESTDIR/opt/reaper/lib",
-	"printf '#!/usr/bin/env sh\\nexec pw-jack /opt/reaper/lib/reaper\\n' > $DESTDIR/opt/reaper/bin/reaper",
+	"printf '#!/usr/bin/env sh\\nexec pw-jack /opt/reaper/lib/reaper $@\\n' > $DESTDIR/opt/reaper/bin/reaper",
 	"chmod +x $DESTDIR/opt/reaper/bin/reaper",
 	"cp REAPER/Resources/main.png $DESTDIR$PREFIX/share/icons/hicolor/256x256/apps/reaper.png",
 	"printf '[Desktop Entry]\\nName=REAPER\\nComment=Digital Audio Workstation\\nExec=/opt/reaper/bin/reaper\\nIcon=reaper\\nTerminal=false\\nType=Application\\nCategories=AudioVideo;Audio;Recorder;\\n' > $DESTDIR$PREFIX/share/applications/reaper.desktop"

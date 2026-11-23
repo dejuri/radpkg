@@ -1,0 +1,16 @@
+[package]
+name = "libjpeg-turbo"
+version = "3.2.1"
+description = "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to accelerate baseline JPEG compression and decompression"
+source = "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.2.1/libjpeg-turbo-3.2.1.tar.gz"
+sha256 = "c27ad72a68da151177929aa969ae773a2da5ac2af9ce946079314fdac8cece7f"
+
+[build]
+system = "manual"
+depends = "cmake,nasm"
+build_commands = [
+	"mkdir build",
+	"cmake -D CMAKE_INSTALL_PREFIX=$PREFIX -D CMAKE_BUILD_TYPE=RELEASE -D ENABLE_STATIC=FALSE -D WITH_JPEG8=ON -D CMAKE_INSTALL_DEFAULT_LIBDIR=lib -D CMAKE_SKIP_INSTALL_RPATH=ON -D CMAKE_INSTALL_DOCDIR=/usr/share/doc/libjpeg-turbo-{version} -B build",
+	"make -C build -j$RAD_CORES"
+]
+install_command = "make DESTDIR=$DESTDIR -C build install"

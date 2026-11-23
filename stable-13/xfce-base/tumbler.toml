@@ -1,0 +1,11 @@
+[package]
+name = "tumbler"
+version = "4.20.2"
+description = "The Tumbler package contains a D-Bus thumbnailing service based on the thumbnail management D-Bus specification"
+source = "https://archive.xfce.org/src/xfce/tumbler/4.20/tumbler-4.20.2.tar.bz2"
+sha256 = "aa77fd90a88b83467cd8d2b39d80e4518ba2903d2e4ca50d32d1b96996685015"
+
+[build]
+system = "autotools"
+depends = "glib,curl,freetype,gdk-pixbuf,gst-plugins-base,libpng,libjpeg-turbo"
+configure_args = "--sysconfdir=/etc"

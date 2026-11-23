@@ -12,7 +12,7 @@ depends = [
 ]
 build_commands = [
 	"mkdir build",
-	"meson setup build --prefix=$PREFIX --buildtype=release -D png=disabled -D gif=disabled -D jpeg=disabled -D tiff=disabled -D thumbnailer=disabled --wrap-mode=nofallback $(pkgconf glycin-2 || echo -D glycin=disabled)",
+	"meson setup build --prefix=$PREFIX --buildtype=release -D png=enabled -D gif=enabled -D jpeg=enabled -D tiff=enabled -D thumbnailer=enabled --wrap-mode=nofallback $(pkgconf glycin-2 || echo -D glycin=disabled)",
 	"ninja -C build -j$RAD_CORES"
 ]
 install_commands = [
