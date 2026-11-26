@@ -1,0 +1,17 @@
+[package]
+name = "nvidia-firmware"
+version = "610.57.04"
+description = "nVidia firmware package"
+unfree = true
+
+[build]
+system = "manual"
+build_commands = [
+	"wget https://us.download.nvidia.com/XFree86/Linux-x86_64/{version}/NVIDIA-Linux-x86_64-{version}.run",
+	"chmod +x NVIDIA-Linux-x86_64-{version}.run",
+	"./NVIDIA-Linux-x86_64-{version}.run --extract-only",
+]
+install_command = [
+	"mkdir $DESTDIR$PREFIX/lib/firmware/nvidia/{version}/ -p",
+	"cp -a NVIDIA-Linux-x86_64-{version}/firmware/* $DESTDIR$PREFIX/lib/firmware/nvidia/{version}/"
+]

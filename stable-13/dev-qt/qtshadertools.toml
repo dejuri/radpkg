@@ -1,0 +1,16 @@
+[package]
+name = "qtshadertools"
+version = "6.12.0"
+description = "APIs and tools in this module provide the producer functionality for the shader pipeline that allows Qt Quick to operate on Vulkan, Metal, and Direct3D, in addition to OpenGL"
+source = "https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.12/6.12.0/submodules/qtshadertools-everywhere-src-6.12.0.tar.xz"
+sha256 = "c7d84f436e1aaef39fdcadebf2bd71bdf24dc69497e13f2e0198873cbbfea2ab"
+
+[build]
+system = "manual"
+depends = "cmake,qtbase"
+build_commands = [
+	"cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DQT_NO_PACKAGE_VERSION_INCOMPATIBLE_WARNING=TRUE -DCMAKE_INSTALL_LIBDIR=lib -DINSTALL_PLUGINSDIR=lib/qt6/plugins -DQT_BUILD_EXAMPLES=OFF -DQT_BUILD_TESTS=OFF",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"
+post_install = "ldconfig"

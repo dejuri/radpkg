@@ -1,0 +1,16 @@
+[package]
+name = "qtdeclarative"
+version = "6.12.0"
+description = "Qt Declarative (Quick 2)"
+source = "https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.12/6.12.0/submodules/qtdeclarative-everywhere-src-6.12.0.tar.xz"
+sha256 = "311f3a2603e1973bb59baef9dfa740a376de713157d4782ee043681e889c9260"
+
+[build]
+system = "manual"
+depends = "cmake,python,qtbase,qtshadertools,qtsvg,qtlanguageserver,vulkan-headers,vulkan-loader"
+build_commands = [
+	"cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_INSTALL_LIBDIR=lib -DINSTALL_PLUGINSDIR=lib/qt6/plugins -DQT_BUILD_EXAMPLES=OFF -DQT_BUILD_TESTS=OFF",
+	"cmake --build build -j$RAD_CORES"
+]
+install_command = "DESTDIR=$DESTDIR cmake --install build"
+post_install = "ldconfig"

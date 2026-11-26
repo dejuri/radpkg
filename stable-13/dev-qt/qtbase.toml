@@ -9,7 +9,7 @@ sha256 = "a951bd163c7b80fc6b8c88d7668fb56abf91c152373e13c10666763238131307"
 system = "manual"
 depends = "cmake,extra-cmake-modules,fontconfig,freetype,xorg-libs"
 build_commands = [
-	"cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DINSTALL_PLUGINSDIR=lib/qt6/plugins -DQT_BUILD_EXAMPLES=OFF -DQT_BUILD_TESTS=OFF",
+	"cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DQT_NO_PACKAGE_VERSION_INCOMPATIBLE_WARNING=TRUE -DCMAKE_INSTALL_LIBDIR=lib -DINSTALL_PLUGINSDIR=lib/qt6/plugins -DQT_BUILD_EXAMPLES=OFF -DQT_BUILD_TESTS=OFF",
 	"cmake --build build -j$RAD_CORES"
 ]
 install_command = "DESTDIR=$DESTDIR cmake --install build"

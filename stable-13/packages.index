@@ -24,6 +24,8 @@ app-text/xmlto
 dev-build/cmake
 dev-build/make-ca
 dev-cpp/asio
+dev-cpp/cli11
+dev-cpp/cpptrace
 dev-cpp/glibmm
 dev-cpp/nlohmann_json
 dev-debug/gdb
@@ -45,6 +47,7 @@ dev-libs/fribidi
 dev-libs/glib
 dev-libs/gobject-introspection
 dev-libs/jansson
+dev-libs/jemalloc
 dev-libs/json-c
 dev-libs/json-glib
 dev-libs/libaio
@@ -90,6 +93,9 @@ dev-libs/wayland-protocols
 dev-libs/websocketpp
 dev-python/python
 dev-qt/qtbase
+dev-qt/qtdeclarative
+dev-qt/qtlanguageserver
+dev-qt/qtshadertools
 dev-qt/qtsvg
 dev-qt/qtwayland
 dev-util/extra-cmake-modules
@@ -111,6 +117,7 @@ gnome-base/gnome-keyring
 gnome-base/gsettings-desktop-schemas
 gnome-base/gvfs
 gui-apps/mesa-demos
+gui-apps/quickshell
 gui-libs/gtk3
 gui-libs/gtk4
 gui-libs/libadwaita
@@ -188,6 +195,7 @@ sys-auth/seatd
 sys-devel/binutils
 sys-devel/gcc
 sys-devel/make
+sys-firmware/nvidia-firmware
 sys-fs/cryptsetup
 sys-fs/fuse
 sys-fs/lvm2
@@ -198,6 +206,7 @@ sys-kernel/v4l2loopback
 sys-libs/glibc
 sys-libs/libblockdev
 sys-libs/libnvme
+sys-libs/libunwind
 sys-libs/unibilium
 sys-libs/zlib
 sys-power/brightnessctl
@@ -211,6 +220,7 @@ x11-libs/cairo
 x11-libs/egl-gbm
 x11-libs/egl-wayland
 x11-libs/gdk-pixbuf
+x11-libs/libdrm
 x11-libs/libgbm
 x11-libs/libglvnd
 x11-libs/libnotify

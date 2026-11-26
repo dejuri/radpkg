@@ -1,0 +1,13 @@
+[package]
+name = "quickshell"
+version = "0.3.2"
+description = "Flexible toolkit for making desktop shells with QtQuick, for Wayland and X11"
+source = "https://github.com/quickshell-mirror/quickshell/archive/refs/tags/v0.3.2.tar.gz"
+sha256 = "946a27e2a276917a03c1079e5c60971af84ece73088c3661dee455d92eb420f7"
+
+[build]
+system = "cmake"
+depends = "cmake,qtbase,qtdeclarative,libdrm,spirv-tools,cli11,vulkan-headers,vulkan-loader,libunwind,cpptrace,jemalloc"
+configure_args = [
+	"-DDISTRIBUTOR='Radian (radpkg)'"
+]

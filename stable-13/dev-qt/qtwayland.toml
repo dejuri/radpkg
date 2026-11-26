@@ -6,23 +6,16 @@ source = "https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.12/6.12.0/sub
 sha256 = "ae14d9bcf1bb3c300a3ab2e6a53f50284e5c6c966a4ac4cc5aedcb1bc74e4d02"
 
 [build]
-system = "cmake"
+system = "manual"
 depends = [
     "qtbase",
     "wayland",
     "wayland-protocols",
     "libxkbcommon"
 ]
-configure_args = [
-    "-GNinja",
-    "-DCMAKE_INSTALL_PREFIX=/usr",
-    "-DCMAKE_INSTALL_LIBDIR=lib",
-    "-DINSTALL_PLUGINSDIR=lib/qt6/plugins",
-    "-DCMAKE_BUILD_TYPE=Release",
-    "-DQT_BUILD_EXAMPLES=OFF",
-    "-DQT_BUILD_TESTS=OFF",
-    "-DQT_FEATURE_wayland_client=ON",
-    "-DQT_FEATURE_wayland_egl=ON",
-    "-DQT_FEATURE_wayland_server=OFF"
+build_commands = [
+	"cmake -S . -B build -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_INSTALL_LIBDIR=lib -DINSTALL_PLUGINSDIR=lib/qt6/plugins -DQT_BUILD_EXAMPLES=OFF -DQT_FEATURE_wayland_client=ON -DQT_NO_PACKAGE_VERSION_INCOMPATIBLE_WARNING=TRUE -DQT_FEATURE_wayland_egl=ON -DQT_FEATURE_wayland_server=OFF",
+	"cmake --build build -j$RAD_CORES"
 ]
+install_command = "DESTDIR=$DESTDIR cmake --install build"
 post-install = "ldconfig"

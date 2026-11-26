@@ -1,0 +1,10 @@
+[package]
+name = "cli11"
+version = "2.7.2"
+description = "CLI11 is a command line parser for C++11 and beyond that provides a rich feature set with a simple and intuitive interface"
+source = "https://github.com/CLIUtils/CLI11/releases/download/v2.7.2/CLI11-2.7.2-Source.tar.gz"
+sha256 = "0cb0ef44c4c7129ea972505ee81e6d09c71b2e7fe59ca3a13c47d8a994d682b2"
+
+[build]
+system = "cmake"
+configure_args = "-DCLI11_PRECOMPILED=ON"

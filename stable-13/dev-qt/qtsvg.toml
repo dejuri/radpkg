@@ -9,7 +9,7 @@ sha256 = "e4ab39534ec97987b1b9b60ef7f4d3253d5912a69f8c713a01753174a4029331"
 system = "manual"
 depends = "cmake,qtbase"
 build_commands = [
-	"cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DINSTALL_PLUGINSDIR=lib/qt6/plugins",
+	"cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_INSTALL_LIBDIR=lib -DINSTALL_PLUGINSDIR=lib/qt6/plugins",
 	"cmake --build build -j$RAD_CORES"
 ]
 install_command = "DESTDIR=$DESTDIR cmake --install build"

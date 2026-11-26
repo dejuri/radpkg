@@ -1,0 +1,14 @@
+[package]
+name = "libdrm"
+version = "2.4.134"
+description = "Libdrm provides a userspace library for accessing the direct rendering manager (DRM) on operating systems that support the ioctl interface. Libdrm is a low-level library, typically used by graphics drivers such as the Mesa DRI drivers, the X drivers, libva and similar projects"
+source = "https://dri.freedesktop.org/libdrm/libdrm-2.4.134.tar.xz"
+sha256 = "ac5e74d157830eb8bee44c6a6bf3ad49774ef0dd2a72bdad74a8f20308b52a95"
+
+[build]
+system = "meson"
+depends = "xorg-libs"
+configure_args = [
+	"-Dudev=true",
+	"-Dvalgrind=disabled"
+]
