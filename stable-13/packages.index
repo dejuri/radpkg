@@ -1,6 +1,8 @@
 app-accessibility/at-spi2-core
 app-admin/doas
+app-arch/bzip2
 app-arch/gzip
+app-arch/xz-utils
 app-crypt/gcr
 app-crypt/gcr4
 app-crypt/gnupg

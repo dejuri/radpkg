@@ -1,0 +1,26 @@
+[package]
+name = "bzip2"
+version = "1.0.8"
+description = "The Bzip2 package contains programs for compressing and decompressing files. Compressing text files with bzip2 yields a much better compression percentage than with the traditional gzip"
+source = "https://www.sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz"
+sha256 = "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269"
+
+[build]
+system = "manual"
+build_commands = [
+	"sed -i 's@\\(ln -s -f \\)$(PREFIX)/bin/@\\1@' Makefile",
+	"make -f Makefile-libbz2_so",
+	"make clean",
+	"make -j$RAD_CORES"
+]
+install_commands = [
+	"make PREFIX=$PREFIX DESTDIR=$DESTDIR install",
+	"mkdir $DESTDIR$PREFIX/lib $DESTDIR$PREFIX/bin -p",
+	"cp -av libbz2.so.* $DESTDIR$PREFIX/lib",
+	"ln -sfv libbz2.so.{version} $DESTDIR$PREFIX/lib/libbz2.so",
+	"ln -sfv libbz2.so.{version} $DESTDIR$PREFIX/lib/libbz2.so.1",
+	"cp -v bzip2-shared $DESTDIR$PREFIX/bin/bzip2",
+	"ln -sfv bzip2 $DESTDIR$PREFIX/bin/bzcat",
+	"ln -sfv bzip2 $DESTDIR$PREFIX/bin/bunzip2",
+	"rm -fv $DESTDIR$PREFIX/lib/libbz2.a"
+]
